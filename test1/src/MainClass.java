@@ -6,6 +6,10 @@ public class MainClass {
 
         for(int idx = 0; idx < 40; idx++) {
             System.out.println(idx);
+            for(int i=0;i<=idx;i++)
+            {
+                System.out.print('*');
+            }
         }
     }
 }
