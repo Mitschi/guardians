@@ -3,5 +3,9 @@ public class MainClass {
         int test=0;
         test++;
         System.out.println(test);
+
+        for(int idx = 0; idx < 40; idx++) {
+            System.out.println(idx);
+        }
     }
 }
