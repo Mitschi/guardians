@@ -5,11 +5,11 @@ public class MainClass {
         System.out.println(test);
 
         for(int idx = 0; idx < 40; idx++) {
-            System.out.println(idx);
             for(int i=0;i<=idx;i++)
             {
-                System.out.print('*');
+                System.out.print(i+",");
             }
+            System.out.println(" ");
         }
     }
 }
