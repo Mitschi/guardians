@@ -9,11 +9,11 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 @RestController
-public class HelloController {
+public class SController2 {
 
-    @RequestMapping("/")
+    @RequestMapping("/next")
     public String index() throws Exception {
-        String path = "src/main/resources/Files/index.html";
+        String path = "src/main/resources/Files/next.html";
         File file = new File(path);
 
 
