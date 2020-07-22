@@ -1,11 +1,8 @@
 package com.github.mitschi.guardiansweb;
 
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.io.File;
-import java.io.FileReader;
 import java.util.Scanner;
 
 @RestController
