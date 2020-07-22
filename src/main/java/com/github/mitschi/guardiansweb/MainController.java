@@ -19,7 +19,7 @@ public class MainController {
 
         if (file.exists()) {
             while (scanner.hasNextLine()) {
-                st =String.format("%s %s",st,scanner.nextLine());
+                st =String.format("%s %s \n",st,scanner.nextLine());
             }
         } else {
             throw new Exception("file doesnt exist");
