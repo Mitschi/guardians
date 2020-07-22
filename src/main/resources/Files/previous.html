@@ -8,46 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script>
-        am4core.ready(function() {
-            am4core.useTheme(am4themes_animated);
-
-            var chart = am4core.create("chartdiv", am4charts.SlicedChart);
-            chart.paddingBottom = 30;
-            chart.data = [{
-                "name": "Stage #1",
-                "value": 600
-            }, {
-                "name": "Stage #2",
-                "value": 300
-            }, {
-                "name": "Stage #3",
-                "value": 200
-            }, {
-                "name": "Stage #4",
-                "value": 180
-            }, {
-                "name": "Stage #5",
-                "value": 50
-            }, {
-                "name": "Stage #6",
-                "value": 20
-            }, {
-                "name": "Stage #7",
-                "value": 280
-            }];
-
-            var series = chart.series.push(new am4charts.PyramidSeries());
-            series.dataFields.value = "value";
-            series.dataFields.category = "name";
-            series.alignLabels = true;
-            series.valueIs = "height";
-        });
-    </script>
 </head>
 
 <body>
@@ -58,13 +18,16 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li class="active"><a href="/previous">previous</a></li>
+            <li><a href="/previous">previous</a></li>
             <li><a href="/next">next</a></li>
         </ul>
     </div>
 </nav>
 
-<div id="chartdiv"></div>
+<div class="jumbotron">
+    <h1>You can go to various charts:</h1>
+    <a href="/draggingPieChart">Dragging Pie Chart</a>
+</div>
 
 <ul class="pager">
     <li class="previous"><a href="/previous">Previous</a></li>
