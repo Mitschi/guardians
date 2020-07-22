@@ -7,6 +7,7 @@
     <link href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="src/main/resources/Files/javascript.js"></script>
 
 </head>
 <body>
@@ -15,40 +16,22 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
+            <a class="navbar-brand" href="#">WebsiteName</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_fixed&stacked=h">Navbar
-                tutorial</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active"><a href="/previous">previous</a></li>
+            <li><a href="/next">next</a></li>
+
         </ul>
     </div>
 </nav>
 
-
-<div class="page-header"><h1>previous.html</h1></div>
-
-<div class="container">
-    <h2>Form control: inline radio buttons</h2>
-    <p>The form below contains three inline radio buttons:</p>
-    <form>
-        <label class="radio-inline">
-            <input type="radio" name="optradio" checked>Option 1
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="optradio">Option 2
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="optradio">Option 3
-        </label>
-    </form>
-</div>
+<canvas id="lineChart"></canvas>
 
 <ul class="pager">
-    <li class="previous"><a href="previous.html">Previous</a></li>
-    <li class="next"><a href="bootstrap.html">Next</a></li>
+    <li class="previous"><a href="/previous">Previous</a></li>
+    <li class="next"><a href="/">Next</a></li>
 </ul>
 
 </body>
