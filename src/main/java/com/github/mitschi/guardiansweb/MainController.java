@@ -14,5 +14,4 @@ public class MainController {
 
         return FileHandler.readFromFile(filePath);
     }
-
 }
