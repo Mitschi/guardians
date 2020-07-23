@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Country</th>
-            <th>Value</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--trPlaceholder-->
-        </tbody>
-    </table>
-</div>
-</body>
+    <head>
+        <title>List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="/previous">Charts</a></li>
+                    <li><a href="/next">Next</a></li>
+                    <li class="active"><a href="/list">List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <br>
+
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--trPlaceholder-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <ul class="pager">
+            <li class="previous"><a href="/">Previous</a></li>
+            <li class="next"><a href="/next">Next</a></li>
+        </ul>
+    </body>
+</html>

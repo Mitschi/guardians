@@ -51,16 +51,14 @@ public class FileHandler {
         chartDataString = chartDataString.concat("var data = [");
 
         for (int idx = 0; idx < lines.length; idx++) {
-            if (dummyValues.equals("") && idx == 0) {
-                idx++;
-            }
-
-            chartDataString = chartDataString.concat("{");
-
             if (idx == 0) {
-                chartDataString = chartDataString.concat(dummyValues);
+                if (dummyValues != "") {
+                    chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
+                }
             }
             else {
+                chartDataString = chartDataString.concat("{");
+
                 for (int innerIdx = 0; innerIdx < columns.size(); innerIdx++) {
                     chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns.get(innerIdx), separatedValues[idx][innerIdx]));
 
@@ -70,7 +68,10 @@ public class FileHandler {
 
                     chartDataString = chartDataString.concat("\n");
                 }
-                chartDataString = chartDataString.concat("}");
+
+                if (idx != 0) {
+                    chartDataString = chartDataString.concat("}");
+                }
 
                 if (idx != lines.length - 1) {
                     chartDataString = chartDataString.concat(", ");

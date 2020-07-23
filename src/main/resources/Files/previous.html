@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</head>
+    <head>
+        <title>Charts</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="/previous">Charts</a></li>
+                    <li><a href="/next">Next</a></li>
+                    <li><a href="/list">List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <br>
 
-<body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebsiteName</a>
+        <div class="jumbotron text-center">
+            <h1>You can go to various charts:</h1>
+            <ul>
+                <h3><li><a href="/draggingPieChart">Dragging Pie Chart</a></li></h3>
+                <h3><li><a href="/columnChart">Column Chart</a></li></h3>
+                <h3><li><a href="/lineChart">Line Chart</a></li></h3>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li><a href="/previous">previous</a></li>
-            <li><a href="/next">next</a></li>
+        <ul class="pager">
+            <li class="previous"><a href="/previous">Previous</a></li>
+            <li class="next"><a href="/">Next</a></li>
         </ul>
-    </div>
-</nav>
-
-<div class="jumbotron">
-    <h1>You can go to various charts:</h1>
-    <a href="/draggingPieChart">Dragging Pie Chart</a>
-</div>
-
-<ul class="pager">
-    <li class="previous"><a href="/previous">Previous</a></li>
-    <li class="next"><a href="/">Next</a></li>
-</ul>
-</body>
+    </body>
 </html>
