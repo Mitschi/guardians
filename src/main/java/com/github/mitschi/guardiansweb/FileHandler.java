@@ -51,6 +51,10 @@ public class FileHandler {
         chartDataString = chartDataString.concat("var data = [");
 
         for (int idx = 0; idx < lines.length; idx++) {
+            if (dummyValues.equals("") && idx == 0) {
+                idx++;
+            }
+
             chartDataString = chartDataString.concat("{");
 
             if (idx == 0) {
