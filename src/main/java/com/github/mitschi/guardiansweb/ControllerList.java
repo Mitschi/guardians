@@ -13,14 +13,14 @@ public class ControllerList {
     @RequestMapping("/list")
     public String index() throws FileNotFoundException {
         String filePath = "src/main/resources/Files/list.html";
-        String tableValuesPath = "src/main/resources/Files/tableValues.csv";
+        String targetFilePath = "src/main/resources/Files/draggingPieChartValues.csv";
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
         String htmlText = "";
 
         boolean lineWasWritten = false;
         String testCol1 = "Austria";
-        int testCol2 = 5;
+        int testCol2 = 50;
 
         try {
             if (file.exists()) {
@@ -29,11 +29,11 @@ public class ControllerList {
 
                     if (line.contains("<!--trPlaceholder-->")) {
                         if (!lineWasWritten) {
-                            String lineToWrite = String.format("\t\t\t<tr><td>%s</td><td>%s</td></tr>\n<!--trPlaceholder-->\n", testCol1, testCol2);
+                            String lineToWrite = String.format("\t\t\t\t\t\t<tr><td>%s</td><td>%s</td></tr>\n<!--trPlaceholder-->\n", testCol1, testCol2);
                             htmlText = htmlText.concat(lineToWrite);
                             lineWasWritten = true;
 
-                            FileHandler.writeToFile(tableValuesPath, FileHandler.readFromFile(tableValuesPath) + String.format("%s,%s,\n", testCol1, testCol2));
+                            FileHandler.writeToFile(targetFilePath, String.format("%s%s,%s,", FileHandler.readFromFile(targetFilePath), testCol1, testCol2));
                         }
                     } else {
                         htmlText = htmlText.concat(line + "\n");
