@@ -19,9 +19,8 @@ public class ControllerList {
         String htmlText = "";
 
         boolean lineWasWritten = false;
-        int testNum1 = 1;
-        int testNum2 = 2;
-        int testNum3 = 3;
+        String testCol1 = "Austria";
+        int testCol2 = 5;
 
         try {
             if (file.exists()) {
@@ -30,15 +29,11 @@ public class ControllerList {
 
                     if (line.contains("<!--trPlaceholder-->")) {
                         if (!lineWasWritten) {
-                            String lineToWrite = String.format("\t\t\t<tr><td>%s</td><td>%s</td><td>%s</td></tr>\n<!--trPlaceholder-->\n", testNum1, testNum2, testNum3);
+                            String lineToWrite = String.format("\t\t\t<tr><td>%s</td><td>%s</td></tr>\n<!--trPlaceholder-->\n", testCol1, testCol2);
                             htmlText = htmlText.concat(lineToWrite);
                             lineWasWritten = true;
 
-                            FileHandler.writeToFile(tableValuesPath, FileHandler.readFromFile(tableValuesPath) + String.format("%s,%s,%s,\n", testNum1, testNum2, testNum3));
-
-                            testNum1++;
-                            testNum2++;
-                            testNum3++;
+                            FileHandler.writeToFile(tableValuesPath, FileHandler.readFromFile(tableValuesPath) + String.format("%s,%s,\n", testCol1, testCol2));
                         }
                     } else {
                         htmlText = htmlText.concat(line + "\n");

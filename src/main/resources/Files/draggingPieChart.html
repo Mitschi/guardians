@@ -9,12 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-    <!-- Resources -->
-    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
-    <!-- Styles -->
     <style>
         #draggingPieChart {
           width: 100%;
@@ -22,43 +16,16 @@
         }
     </style>
 
-    <!-- Chart code -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
     <script>
         am4core.ready(function() {
 
-        // Themes begin
         am4core.useTheme(am4themes_animated);
-        // Themes end
 
-        var data = [{
-            "country": "Dummy",
-            "disabled": true,
-            "litres": 1000,
-            "color": am4core.color("#dadada"),
-            "opacity": 0.3,
-            "strokeDasharray": "4,4"
-        }, {
-            "country": "Lithuania",
-            "litres": 501.9
-        }, {
-            "country": "Estonia",
-            "litres": 301.9
-        }, {
-            "country": "Ireland",
-            "litres": 201.1
-        }, {
-            "country": "Germany",
-            "litres": 165.8
-        }, {
-            "country": "Australia",
-            "litres": 139.9
-        }, {
-            "country": "Austria",
-            "litres": 128.3
-        }];
+        /*dataPlaceholder*/
 
-
-        // cointainer to hold both charts
         var container = am4core.create("draggingPieChart", am4core.Container);
         container.width = am4core.percent(100);
         container.height = am4core.percent(100);
@@ -103,7 +70,6 @@
 
         sliceTemplate1.events.on("down", function (event) {
             event.target.toFront();
-            // also put chart to front
             var series = event.target.dataItem.component;
             series.chart.zIndex = zIndex++;
         })
@@ -116,7 +82,6 @@
             handleDragStop(event);
         })
 
-        // separator line and text
         var separatorLine = container.createChild(am4core.Line);
         separatorLine.x1 = 0;
         separatorLine.y2 = 300;
@@ -133,7 +98,6 @@
         dragText.align = "center";
         dragText.paddingBottom = 5;
 
-        // second chart
         var chart2 = container.createChild(am4charts.PieChart);
         chart2.hiddenState.properties.opacity = 0; // this makes initial fade in effect
         chart2 .fontSize = 11;
@@ -184,7 +148,6 @@
             var series1CenterConverted = am4core.utils.svgPointToSprite(series1Center, series2.slicesContainer);
             var series2CenterConverted = am4core.utils.svgPointToSprite(series2Center, series1.slicesContainer);
 
-            // tooltipY and tooltipY are in the middle of the slice, so we use them to avoid extra calculations
             var targetSlicePoint = am4core.utils.spritePointToSvg({ x: targetSlice.tooltipX, y: targetSlice.tooltipY }, targetSlice);
 
             if (targetSlice == slice1) {
@@ -272,7 +235,7 @@
             dummyDataItem.slice.tooltipText = undefined;
         })
 
-        }); // end am4core.ready()
+        });
     </script>
 </head>
 
