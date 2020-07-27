@@ -8,146 +8,114 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+        <!-- Styles -->
         <style>
-            #chartdiv {
-              width: 100%;
-              height: 500px;
-            }
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
 
-            .pager {
-                bottom:0;
-            }
-        </style>
+</style>
 
+        <!-- Resources -->
         <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
         <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
         <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
+        <!-- Chart code -->
         <script>
-            am4core.ready(function() {
-                am4core.useTheme(am4themes_animated);
+am4core.ready(function() {
 
-                var chart = am4core.create("chartdiv", am4charts.XYChart);
+// Themes begin
+am4core.useTheme(am4themes_dataviz);
+am4core.useTheme(am4themes_animated);
+// Themes end
 
-                chart.data = [{
-                    "x": 1,
-                    "ay": 6.5,
-                    "by": 2.2,
-                    "aValue": 15,
-                    "bValue": 10
-                }, {
-                    "x": 2,
-                    "ay": 12.3,
-                    "by": 4.9,
-                    "aValue": 8,
-                    "bValue": 3
-                }, {
-                    "x": 3,
-                    "ay": 12.3,
-                    "by": 5.1,
-                    "aValue": 16,
-                    "bValue": 4
-                }, {
-                    "x": 5,
-                    "ay": 2.9,
-                    "aValue": 9
-                }, {
-                    "x": 7,
-                    "by": 8.3,
-                    "bValue": 13
-                }, {
-                    "x": 10,
-                    "ay": 2.8,
-                    "by": 13.3,
-                    "aValue": 9,
-                    "bValue": 13
-                }, {
-                    "x": 12,
-                    "ay": 3.5,
-                    "by": 6.1,
-                    "aValue": 5,
-                    "bValue": 2
-                }, {
-                    "x": 13,
-                    "ay": 5.1,
-                    "aValue": 10
-                }, {
-                    "x": 15,
-                    "ay": 6.7,
-                    "by": 10.5,
-                    "aValue": 3,
-                    "bValue": 10
-                }, {
-                    "x": 16,
-                    "ay": 8,
-                    "by": 12.3,
-                    "aValue": 5,
-                    "bValue": 13
-                }, {
-                    "x": 20,
-                    "by": 4.5,
-                    "bValue": 11
-                }, {
-                    "x": 22,
-                    "ay": 9.7,
-                    "by": 15,
-                    "aValue": 15,
-                    "bValue": 10
-                }, {
-                    "x": 23,
-                    "ay": 10.4,
-                    "by": 10.8,
-                    "aValue": 1,
-                    "bValue": 11
-                }, {
-                    "x": 24,
-                    "ay": 1.7,
-                    "by": 19,
-                    "aValue": 12,
-                    "bValue": 3
-                }];
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-                var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
-                xAxis.renderer.minGridDistance = 40;
+// Add data
+chart.data = [{
+  "date": "2012-07-27",
+  "value": 13
+}, {
+  "date": "2012-07-28",
+  "value": 11
+}, {
+  "date": "2012-07-29",
+  "value": 15
+}, {
+  "date": "2012-07-30",
+  "value": 16
+}, {
+  "date": "2012-07-31",
+  "value": 18
+}, {
+  "date": "2012-08-01",
+  "value": 13
+}, {
+  "date": "2012-08-02",
+  "value": 22
+}];
+// Set input format for the dates
+chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
 
-                var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+// Create axes
+var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
-                var series1 = chart.series.push(new am4charts.LineSeries());
-                series1.dataFields.valueX = "x";
-                series1.dataFields.valueY = "ay";
-                series1.dataFields.value = "aValue";
-                series1.strokeWidth = 2;
+// Create series
+var series = chart.series.push(new am4charts.LineSeries());
+series.dataFields.valueY = "value";
+series.dataFields.dateX = "date";
+series.tooltipText = "{value}"
+series.strokeWidth = 2;
+series.minBulletDistance = 15;
 
-                var bullet1 = series1.bullets.push(new am4charts.CircleBullet());
-                series1.heatRules.push({
-                    target: bullet1.circle,
-                    min: 5,
-                    max: 20,
-                    property: "radius"
-                });
+// Drop-shaped tooltips
+series.tooltip.background.cornerRadius = 20;
+series.tooltip.background.strokeOpacity = 0;
+series.tooltip.pointerOrientation = "vertical";
+series.tooltip.label.minWidth = 40;
+series.tooltip.label.minHeight = 40;
+series.tooltip.label.textAlign = "middle";
+series.tooltip.label.textValign = "middle";
 
-                bullet1.tooltipText = "{valueX} x {valueY}: [bold]{value}[/]";
+// Make bullets grow on hover
+var bullet = series.bullets.push(new am4charts.CircleBullet());
+bullet.circle.strokeWidth = 2;
+bullet.circle.radius = 4;
+bullet.circle.fill = am4core.color("#fff");
 
-                var series2 = chart.series.push(new am4charts.LineSeries());
-                series2.dataFields.valueX = "x";
-                series2.dataFields.valueY = "by";
-                series2.dataFields.value = "bValue";
-                series2.strokeWidth = 2;
+var bullethover = bullet.states.create("hover");
+bullethover.properties.scale = 1.3;
 
-                var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
-                series2.heatRules.push({
-                    target: bullet2.circle,
-                    min: 5,
-                    max: 20,
-                    property: "radius"
-                });
+// Make a panning cursor
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.behavior = "panXY";
+chart.cursor.xAxis = dateAxis;
+chart.cursor.snapToSeries = series;
 
-                bullet2.tooltipText = "{valueX} x {valueY}: [bold]{value}[/]";
+// Create vertical scrollbar and place it before the value axis
+chart.scrollbarY = new am4core.Scrollbar();
+chart.scrollbarY.parent = chart.leftAxesContainer;
+chart.scrollbarY.toBack();
 
-                chart.scrollbarX = new am4core.Scrollbar();
-                chart.scrollbarY = new am4core.Scrollbar();
-            });
-        </script>
+// Create a horizontal scrollbar with previe and place it underneath the date axis
+chart.scrollbarX = new am4charts.XYChartScrollbar();
+chart.scrollbarX.series.push(series);
+chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+dateAxis.start = 0.79;
+dateAxis.keepSelection = true;
+
+
+}); // end am4core.ready()
+</script>
+
+        <!-- HTML -->
+
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
