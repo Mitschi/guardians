@@ -9,8 +9,8 @@ import java.sql.SQLException;
 public class H2Read {
     private static final String QUERY = "select * from guardians_values";
 
-    public static void H2read() {
-
+    public static String H2read() {
+        String texttowrite="";
         // using try-with-resources to avoid closing resources (boiler plate code)
 
         // Step 1: Establishing a Connection
@@ -24,7 +24,7 @@ public class H2Read {
             ResultSet rs = preparedStatement.executeQuery();
 
             // Step 4: Process the ResultSet object.
-            String texttowrite="";
+
             String path="src/main/resources/Files/DB.csv";
             System.out.println("read start");
             while (rs.next()) {
@@ -40,6 +40,7 @@ public class H2Read {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return texttowrite;
         // Step 4: try-with-resource statement will auto close the connection.
     }
 }

@@ -20,7 +20,7 @@ public class ControllerForm {
         String filePath = "src/main/resources/Files/formInputData.csv";
 
         FileHandler.writeToFile(filePath, FileHandler.readFromFile(filePath) + tableEntry.toString());
-
+        H2Insert.Insert(tableEntry.getCountry(),tableEntry.getValue());
         return "form";
     }
 

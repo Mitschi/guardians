@@ -13,9 +13,10 @@ public class ControllerDraggingPieChart {
     @RequestMapping("/draggingPieChart")
     public String index() throws Exception {
         String filePath = "src/main/resources/Files/HTML/draggingPieChart.html";
-        String dataFilePath = "src/main/resources/Files/draggingPieChartValues.csv";
+        String data=H2Read.H2read();
+        String[][] separatedValues=FileHandler.convertStringToTable(data);
 
-        String dummyElement = "\"country\": \"Dummy\",\n" +
+        String dummyValues = "\"country\": \"Dummy\",\n" +
                 "\"disabled\": true,\n" +
                 "\"litres\": 1000,\n" +
                 "\"color\": am4core.color(\"#dadada\"),\n" +
@@ -26,6 +27,6 @@ public class ControllerDraggingPieChart {
         columns.add("country");
         columns.add("litres");
 
-        return ChartDataHandler.insertDataIntoHTMLFile(filePath, dataFilePath, dummyElement, columns);
+        return ChartDataHandler.DBinsertDataIntoHTMLFile(filePath,separatedValues,dummyValues,columns);
     }
 }

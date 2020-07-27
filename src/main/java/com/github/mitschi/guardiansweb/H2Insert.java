@@ -17,12 +17,12 @@ public class H2Insert{
             "  (country,value) VALUES " +
             " (?, ?);";
 
-    public static void Insert(int value2,String value1) throws SQLException {
+    public static void Insert(String value1,int value2) throws SQLException {
         H2Insert createTableExample = new H2Insert();
-        createTableExample.insertRecord(value2,value1);
+        createTableExample.insertRecord(value1,value2);
     }
 
-    public void insertRecord(int value2,String value1) throws SQLException {
+    public void insertRecord(String value1,int value2) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
         // Step 1: Establishing a Connection
         try (Connection connection = H2JDBCUtils.getConnection();

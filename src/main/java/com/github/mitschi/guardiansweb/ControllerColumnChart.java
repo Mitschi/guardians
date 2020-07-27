@@ -11,7 +11,8 @@ public class ControllerColumnChart {
     @RequestMapping("/columnChart")
     public String index() throws Exception {
         String filePath = "src/main/resources/Files/HTML/columnChart.html";
-        String dataFilePath = "src/main/resources/Files/columnChartValues.csv";
+        String dataFilePath = "src/main/resources/Files/DB.csv";
+
 
         ArrayList<String> columns = new ArrayList<String>();
         columns.add("country");

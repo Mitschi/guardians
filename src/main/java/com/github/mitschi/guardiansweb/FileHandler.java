@@ -48,41 +48,19 @@ public class FileHandler {
             separatedValues[idx] = lines[idx].split(",");
         }
 
-        chartDataString = chartDataString.concat("var data = [");
 
-        for (int idx = -1; idx < lines.length; idx++) {
-            if (idx == -1) {
-                if (dummyValues != "") {
-                    chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
 
-                    if (separatedValues.length > 0) {
-                        chartDataString = chartDataString.concat(",");
-                    }
-                }
-            }
-            else {
-                chartDataString = chartDataString.concat("{");
-
-                for (int innerIdx = 0; innerIdx < columns.size(); innerIdx++) {
-                    chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns.get(innerIdx), separatedValues[idx][innerIdx]));
-
-                    if (innerIdx != columns.size() - 1) {
-                        chartDataString = chartDataString.concat(",");
-                    }
-
-                    chartDataString = chartDataString.concat("\n");
-                }
-
-                chartDataString = chartDataString.concat("}");
-
-                if (idx != lines.length - 1) {
-                    chartDataString = chartDataString.concat(", ");
-                }
-            }
-        }
-
-        chartDataString = chartDataString.concat("];");
-
-        return chartDataString;
+        return ChartDataHandler.convertToJSONString(separatedValues,dummyValues,columns);
     }
+
+    public static String[][] convertStringToTable(String stringToConvert) {
+        String[] lines = stringToConvert.split("\n");
+        String[][] separatedValues = new String[lines.length][];
+
+        for (int idx = 0; idx < lines.length; idx++) {
+            separatedValues[idx] = lines[idx].split(",");
+        }
+        return separatedValues;
+    }
+
 }
