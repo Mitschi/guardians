@@ -1,5 +1,6 @@
-package com.github.mitschi.guardiansweb;
+package com.github.mitschi.guardiansweb.controller;
 
+import com.github.mitschi.guardiansweb.FileHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +11,7 @@ public class ControllerCharts {
 
     @RequestMapping("/charts")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/HTML/charts.html";
+        String filePath = "src/main/resources/HTML/charts.html";
 
         return FileHandler.readFromFile(filePath);
     }

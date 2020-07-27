@@ -1,20 +1,21 @@
-package com.github.mitschi.guardiansweb;
+package com.github.mitschi.guardiansweb.controller;
 
+import com.github.mitschi.guardiansweb.ChartDataHandler;
+import com.github.mitschi.guardiansweb.FileHandler;
+import com.github.mitschi.guardiansweb.h2.H2Read;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 
 @RestController
 public class ControllerDraggingPieChart {
 
     @RequestMapping("/draggingPieChart")
     public String index() throws Exception {
-        String filePath = "src/main/resources/Files/HTML/draggingPieChart.html";
-        String data=H2Read.H2read();
-        String[][] separatedValues=FileHandler.convertStringToTable(data);
+        String filePath = "src/main/resources/HTML/draggingPieChart.html";
+        String data= H2Read.H2read();
+        String[][] separatedValues= FileHandler.convertStringTo2DArray(data);
 
         String dummyValues = "\"country\": \"Dummy\",\n" +
                 "\"disabled\": true,\n" +
@@ -27,6 +28,6 @@ public class ControllerDraggingPieChart {
         columns.add("country");
         columns.add("litres");
 
-        return ChartDataHandler.DBinsertDataIntoHTMLFile(filePath,separatedValues,dummyValues,columns);
+        return ChartDataHandler.insertDataIntoHTMLFile(filePath,separatedValues,dummyValues,columns);
     }
 }

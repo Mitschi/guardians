@@ -1,16 +1,17 @@
-package com.github.mitschi.guardiansweb;
+package com.github.mitschi.guardiansweb.controller;
 
+import com.github.mitschi.guardiansweb.FileHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.FileNotFoundException;
 
 @RestController
-public class ControllerLineChart {
+public class MainController {
 
-    @RequestMapping("/lineChart")
+    @RequestMapping("/")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/HTML/lineChart.html";
+        String filePath = "src/main/resources/HTML/index.html";
 
         return FileHandler.readFromFile(filePath);
     }

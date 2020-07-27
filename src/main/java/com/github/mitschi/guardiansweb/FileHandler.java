@@ -3,7 +3,6 @@ package com.github.mitschi.guardiansweb;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -32,28 +31,14 @@ public class FileHandler {
             myWriter.write(textToWrite);
         }
         catch (Exception ex) {
+            ex.printStackTrace();
         }
         finally {
             myWriter.close();
         }
     }
 
-    public static String getChartDataFromCSVFile(String filePath, ArrayList<String> columns, String dummyValues) throws FileNotFoundException {
-        String chartDataString = "";
-        String[] lines = readFromFile(filePath).split("\n");
-
-        String[][] separatedValues = new String[lines.length][];
-
-        for (int idx = 0; idx < lines.length; idx++) {
-            separatedValues[idx] = lines[idx].split(",");
-        }
-
-
-
-        return ChartDataHandler.convertToJSONString(separatedValues,dummyValues,columns);
-    }
-
-    public static String[][] convertStringToTable(String stringToConvert) {
+    public static String[][] convertStringTo2DArray(String stringToConvert) {
         String[] lines = stringToConvert.split("\n");
         String[][] separatedValues = new String[lines.length][];
 
@@ -62,5 +47,4 @@ public class FileHandler {
         }
         return separatedValues;
     }
-
 }
