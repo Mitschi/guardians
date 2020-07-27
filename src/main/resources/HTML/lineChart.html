@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Line Chart</title>
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Line Chart</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-        <!-- Styles -->
-        <style>
+    <!-- Styles -->
+    <style>
 #chartdiv {
   width: 100%;
   height: 500px;
@@ -17,14 +17,14 @@
 
 </style>
 
-        <!-- Resources -->
-        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-        <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
-        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
-        <!-- Chart code -->
-        <script>
+    <!-- Chart code -->
+    <script>
 am4core.ready(function() {
 
 // Themes begin
@@ -114,33 +114,33 @@ dateAxis.keepSelection = true;
 }); // end am4core.ready()
 </script>
 
-        <!-- HTML -->
+    <!-- HTML -->
 
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li class="active"><a href="/charts">Charts</a></li>
-                    <li><a href="/form">Form</a></li>
-                    <li><a href="/list">List</a></li>
-                </ul>
-            </div>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div id="chartdiv"></div>
-
-        <ul class="pager">
-            <li class="previous"><a href="/charts">Previous</a></li>
-            <li class="next"><a href="/draggingPieChart">Next</a></li>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active"><a href="/charts">Charts</a></li>
+            <li><a href="/form">Form</a></li>
+            <li><a href="/list">List</a></li>
         </ul>
-    </body>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+
+<div id="chartdiv"></div>
+
+<ul class="pager">
+    <li class="previous"><a href="/charts">Previous</a></li>
+    <li class="next"><a href="/draggingPieChart">Next</a></li>
+</ul>
+</body>
 </html>
