@@ -50,8 +50,8 @@ public class FileHandler {
 
         chartDataString = chartDataString.concat("var data = [");
 
-        for (int idx = 0; idx < lines.length; idx++) {
-            if (idx == 0) {
+        for (int idx = -1; idx < lines.length; idx++) {
+            if (idx == -1) {
                 if (dummyValues != "") {
                     chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
                 }
@@ -69,13 +69,11 @@ public class FileHandler {
                     chartDataString = chartDataString.concat("\n");
                 }
 
-                if (idx != 0) {
-                    chartDataString = chartDataString.concat("}");
-                }
+                chartDataString = chartDataString.concat("}");
+            }
 
-                if (idx != lines.length - 1) {
-                    chartDataString = chartDataString.concat(", ");
-                }
+            if (idx != lines.length - 1) {
+                chartDataString = chartDataString.concat(", ");
             }
         }
 
