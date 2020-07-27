@@ -12,7 +12,7 @@ public class ControllerDraggingPieChart {
 
     @RequestMapping("/draggingPieChart")
     public String index() throws Exception {
-        String filePath = "src/main/resources/Files/draggingPieChart.html";
+        String filePath = "src/main/resources/Files/HTML/draggingPieChart.html";
         String dataFilePath = "src/main/resources/Files/draggingPieChartValues.csv";
 
         String dummyElement = "\"country\": \"Dummy\",\n" +

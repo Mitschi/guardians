@@ -10,7 +10,7 @@ public class ControllerLineChart {
 
     @RequestMapping("/lineChart")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/lineChart.html";
+        String filePath = "src/main/resources/Files/HTML/lineChart.html";
 
         return FileHandler.readFromFile(filePath);
     }

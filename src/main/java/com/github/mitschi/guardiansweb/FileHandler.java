@@ -54,6 +54,10 @@ public class FileHandler {
             if (idx == -1) {
                 if (dummyValues != "") {
                     chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
+
+                    if (separatedValues.length > 0) {
+                        chartDataString = chartDataString.concat(",");
+                    }
                 }
             }
             else {
@@ -70,10 +74,10 @@ public class FileHandler {
                 }
 
                 chartDataString = chartDataString.concat("}");
-            }
 
-            if (idx != lines.length - 1) {
-                chartDataString = chartDataString.concat(", ");
+                if (idx != lines.length - 1) {
+                    chartDataString = chartDataString.concat(", ");
+                }
             }
         }
 

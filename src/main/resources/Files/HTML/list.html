@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>List</title>
         <meta charset="UTF-8">
+        <title>List</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <style>
+            .pager {
+                bottom:0;
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -16,18 +22,19 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="/previous">Charts</a></li>
-                    <li><a href="/next">Next</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/form">Form</a></li>
                     <li class="active"><a href="/list">List</a></li>
                 </ul>
             </div>
         </nav>
         <br>
         <br>
-        <br>
-        <br>
 
-        <div class="container">
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1 style="text-align:center;">List</h1>
+            </div>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -37,19 +44,15 @@
                     </tr>
                     </thead>
                     <tbody>
-						<tr><td>Austria</td><td>50</td></tr>
-						<tr><td>Austria</td><td>50</td></tr>
-						<tr><td>Austria</td><td>50</td></tr>
-						<tr><td>Austria</td><td>50</td></tr>
-						<tr><td>Austria</td><td>50</td></tr>
 <!--trPlaceholder-->
                     </tbody>
                 </table>
             </div>
         </div>
+
         <ul class="pager">
-            <li class="previous"><a href="/">Previous</a></li>
-            <li class="next"><a href="/next">Next</a></li>
+            <li class="previous"><a href="/form">Previous</a></li>
+            <li class="next"><a href="/">Next</a></li>
         </ul>
     </body>
 </html>

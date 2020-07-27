@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Charts</title>
         <meta charset="UTF-8">
+        <title>Charts</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -13,6 +12,10 @@
         <style>
             ul {
                 list-style-type:none;
+            }
+
+            .pager {
+                bottom:0;
             }
         </style>
     </head>
@@ -24,8 +27,8 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li class="active"><a href="/previous">Charts</a></li>
-                    <li><a href="/next">Next</a></li>
+                    <li class="active"><a href="/charts">Charts</a></li>
+                    <li><a href="/form">Form</a></li>
                     <li><a href="/list">List</a></li>
                 </ul>
             </div>
@@ -33,17 +36,20 @@
         <br>
         <br>
 
-        <div class="jumbotron text-center">
-            <h1>You can go to various charts:</h1>
+        <div class="container-fluid">
+            <div class="jumbotron text-center">
+                <h1>You can go to various charts:</h1>
+            </div>
             <ul>
                 <h3><li><a href="/draggingPieChart">Dragging Pie Chart</a></li></h3>
                 <h3><li><a href="/columnChart">Column Chart</a></li></h3>
                 <h3><li><a href="/lineChart">Line Chart</a></li></h3>
             </ul>
         </div>
+
         <ul class="pager">
-            <li class="previous"><a href="/previous">Previous</a></li>
-            <li class="next"><a href="/">Next</a></li>
+            <li class="previous"><a href="/">Previous</a></li>
+            <li class="next"><a href="/form">Next</a></li>
         </ul>
     </body>
 </html>

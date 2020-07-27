@@ -10,7 +10,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/index.html";
+        String filePath = "src/main/resources/Files/HTML/index.html";
 
         return FileHandler.readFromFile(filePath);
     }

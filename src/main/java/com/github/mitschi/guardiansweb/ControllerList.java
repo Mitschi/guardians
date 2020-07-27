@@ -12,7 +12,7 @@ public class ControllerList {
 
     @RequestMapping("/list")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/list.html";
+        String filePath = "src/main/resources/Files/HTML/list.html";
         String targetFilePath = "src/main/resources/Files/draggingPieChartValues.csv";
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);

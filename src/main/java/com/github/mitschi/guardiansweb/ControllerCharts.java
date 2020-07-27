@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.FileNotFoundException;
 
 @RestController
-public class ControllerPrevious {
+public class ControllerCharts {
 
-    @RequestMapping("/previous")
+    @RequestMapping("/charts")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/previous.html";
+        String filePath = "src/main/resources/Files/HTML/charts.html";
 
         return FileHandler.readFromFile(filePath);
     }
