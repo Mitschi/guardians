@@ -6,29 +6,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChartDataHandler {
-    public static String insertDataIntoHTMLFile(String htmlFilePath, String dataFilePath, String dummyElement, ArrayList<String> columns) throws Exception {
-        String chartValues = FileHandler.getChartDataFromCSVFile(dataFilePath, columns, dummyElement);
-
-        File file = new File(htmlFilePath);
-        Scanner scanner = new Scanner(file);
-        String htmlText = "";
-
-        if (file.exists()) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-
-                if (line.contains("/*dataPlaceholder*/")) {
-                    htmlText = htmlText.concat(chartValues);
-                } else {
-                    htmlText = htmlText.concat(line + "\n");
-                }
-            }
-        } else {
-            throw new FileNotFoundException(htmlFilePath + "doesn't exist");
-        }
-
-        return htmlText;
-    }
 
     public static String convertToJSONString(String[][] separatedValues,String dummyValues, ArrayList<String> columns){
        String chartDataString = "";
@@ -69,7 +46,7 @@ public class ChartDataHandler {
         return chartDataString;
     }
 
-    public static String DBinsertDataIntoHTMLFile(String htmlFilePath, String[][] separatedValues, String dummyValues, ArrayList<String> columns) throws Exception {
+    public static String insertDataIntoHTMLFile(String htmlFilePath, String[][] separatedValues, String dummyValues, ArrayList<String> columns) throws Exception {
         String chartValues = convertToJSONString(separatedValues,dummyValues,columns);
 
         File file = new File(htmlFilePath);
