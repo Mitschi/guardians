@@ -55,9 +55,8 @@ public class ControllerList {
             }
         }
 
-        for (int idx = 0; idx < allRecords.length; idx++) {
-            H2Manager.update("id", idx);
-        }
+
+            H2Manager.update();
 
         return htmlText;
     }
