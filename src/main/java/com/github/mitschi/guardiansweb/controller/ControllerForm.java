@@ -1,7 +1,7 @@
 package com.github.mitschi.guardiansweb.controller;
 
-import com.github.mitschi.guardiansweb.h2.H2Insert;
 import com.github.mitschi.guardiansweb.TableEntry;
+import com.github.mitschi.guardiansweb.h2.H2Manager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class ControllerForm {
 
     @PostMapping("/form")
     public String greetingSubmit(@ModelAttribute TableEntry tableEntry) {
-        H2Insert.Insert(tableEntry.getName(), tableEntry.getUrl());
+        H2Manager.Insert(tableEntry.getName(), tableEntry.getUrl());
 
         return "form";
     }

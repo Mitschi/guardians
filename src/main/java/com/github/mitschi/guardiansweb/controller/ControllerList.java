@@ -1,7 +1,7 @@
 package com.github.mitschi.guardiansweb.controller;
 
 import com.github.mitschi.guardiansweb.FileHandler;
-import com.github.mitschi.guardiansweb.h2.H2Read;
+import com.github.mitschi.guardiansweb.h2.H2Manager;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,7 +17,7 @@ public class ControllerList {
 
         String[] htmlLines = FileHandler.readFromFile(filePath).split("\n");
 
-        String[] allRecords = H2Read.H2read("SELECT * FROM url_sources", columnLabels).split("\n");
+        String[] allRecords = H2Manager.H2read("SELECT * FROM url_sources", columnLabels).split("\n");
 
         String[][] separatedValues = new String[allRecords.length][columnLabels.length];
 
@@ -46,11 +46,17 @@ public class ControllerList {
                         htmlText = htmlText.concat(String.format("<td>%s</td>\n", separatedValues[outerIdx][innerIdx]));
                     }
 
-                    htmlText = htmlText.concat("</tr>\n");
+                    String tempButtonId = "delete" + String.valueOf(outerIdx + 1);
+
+                    htmlText = htmlText.concat(String.format("<td><button id = \"%s\">Delete</button></td>\n</tr>\n", tempButtonId));
                 }
 
                 htmlText = htmlText.concat("</table>\n");
             }
+        }
+
+        for (int idx = 0; idx < allRecords.length; idx++) {
+            H2Manager.update("id", idx);
         }
 
         return htmlText;
