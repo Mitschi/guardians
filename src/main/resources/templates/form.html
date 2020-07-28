@@ -10,9 +10,14 @@
 
         <style>
             .pager {
-                position: absolute;
+                position: relative;
                 bottom: 0;
                 width: 100%;
+            }
+
+            #pager {
+                background-color:transparent;
+                border:none;
             }
         </style>
     </head>
@@ -26,6 +31,7 @@
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="/charts">Charts</a></li>
                     <li class="active"><a href="/form">Form</a></li>
+                    <li><a href="/list">List</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,8 +43,8 @@
                 <h1 style="text-align:center;">Form</h1>
             </div>
             <form action="#" th:action="@{/form}" th:object="${tableEntry}" method="post">
-                <p>Country: <input type="text" th:field="*{country}" /></p>
-                <p>Value: <input type="text" th:field="*{value}" /></p>
+                <p>Name: <input type="text" th:field="*{name}" /></p>
+                <p>URL: <input type="text" th:field="*{url}" /></p>
                 <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
             </form>
             <br>
@@ -46,15 +52,17 @@
             <br>
 
             <div>
-                <p th:text="'country: ' + ${tableEntry.country}" />
-                <p th:text="'value: ' + ${tableEntry.value}" />
+                <p th:text="'Name: ' + ${tableEntry.name}" />
+                <p th:text="'URL: ' + ${tableEntry.url}" />
                 <a href="/form">Submit another message</a>
             </div>
         </div>
 
-        <ul class="pager">
-            <li class="previous"><a href="/charts">Previous</a></li>
-            <li class="next"><a href="/">Next</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
+            <ul class="pager">
+                <li class="previous"><a href="/charts">Previous</a></li>
+                <li class="next"><a href="/list">Next</a></li>
+            </ul>
+        </nav>
     </body>
 </html>

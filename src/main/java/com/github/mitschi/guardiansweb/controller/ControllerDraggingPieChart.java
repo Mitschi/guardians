@@ -12,7 +12,7 @@ public class ControllerDraggingPieChart {
     @RequestMapping("/draggingPieChart")
     public String index() throws Exception {
         String filePath = "src/main/resources/HTML/draggingPieChart.html";
-        String data = H2Read.H2read("SELECT * FROM guardians_values", "country", "value");
+        String data = H2Read.H2read("SELECT * FROM guardians_values", new String[] {"country", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 
         String dummyValues = "\"country\": \"Dummy\",\n" +

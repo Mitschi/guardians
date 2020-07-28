@@ -12,7 +12,7 @@ public class ControllerLineChart {
     @RequestMapping("/lineChart")
     public String index() throws Exception {
         String filePath = "src/main/resources/HTML/lineChart.html";
-        String data = H2Read.H2read("SELECT * FROM date_value ORDER BY date", "date", "value");
+        String data = H2Read.H2read("SELECT * FROM date_value ORDER BY date", new String[] {"date", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 
         String[] columns = new String[] {"date", "value"};

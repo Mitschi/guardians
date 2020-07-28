@@ -19,8 +19,8 @@ public class ControllerForm {
     }
 
     @PostMapping("/form")
-    public String greetingSubmit(@ModelAttribute TableEntry tableEntry) throws Exception {
-        H2Insert.Insert(tableEntry.getCountry(), tableEntry.getValue());
+    public String greetingSubmit(@ModelAttribute TableEntry tableEntry) {
+        H2Insert.Insert(tableEntry.getName(), tableEntry.getUrl());
 
         return "form";
     }

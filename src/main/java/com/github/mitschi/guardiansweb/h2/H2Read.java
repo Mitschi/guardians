@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class H2Read {
 
-    public static String H2read(String QUERY, String columnLabel1, String columnLabel2) {
+    public static String H2read(String QUERY, String[] columnLabels) {
         String textToWrite = "";
 
         try (Connection connection = H2JDBCUtils.getConnection();
@@ -16,11 +16,16 @@ public class H2Read {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                String country = rs.getString(columnLabel1);
-                String value = rs.getString(columnLabel2);
-                textToWrite = textToWrite.concat(String.format("%s,%s,\n", country, value));
-            }
+                for (int idx = 0; idx < columnLabels.length; idx++) {
+                    String cellValue = rs.getString(columnLabels[idx]);
 
+                    textToWrite = textToWrite.concat(String.format("%s,", cellValue));
+
+                    if (idx == columnLabels.length - 1) {
+                        textToWrite = textToWrite.concat("\n");
+                    }
+                }
+            }
         }
         catch (SQLException e) {
             H2JDBCUtils.printSQLException(e);

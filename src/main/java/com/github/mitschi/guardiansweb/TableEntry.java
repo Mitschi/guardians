@@ -1,27 +1,27 @@
 package com.github.mitschi.guardiansweb;
 
 public class TableEntry {
-    private String country;
-    private int value;
+    private String name;
+    private String url;
 
-    public String getCountry() {
-        return country;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public int getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public String getUrl() {
+        return url;
     }
 
     @Override
     public String toString() {
-        return String.format("%s,%s,\n", country, value);
+        return String.format("%s,%s,\n", name, url);
     }
 }

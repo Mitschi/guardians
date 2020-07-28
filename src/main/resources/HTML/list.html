@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <style>
+                .pager {
+                position: relative;
+                bottom: 0;
+                width: 100%;
+                }
+
+                #pager {
+                    background-color:transparent;
+                    border:none;
+                }
+
+                table {
+                    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                table td, table th {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+
+                table tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+
+                table tr:hover {
+                    background-color: #ddd;
+                }
+
+                table th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: #4CAF50;
+                    color: white;
+                }
+            </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/form">Form</a></li>
+                    <li class="active"><a href="/list">List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <br>
+
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1 style="text-align:center;">List</h1>
+            </div>
+
+            <!--tablePlaceholder-->
+        </div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
+            <ul class="pager">
+                <li class="previous"><a href="/form">Previous</a></li>
+                <li class="next"><a href="/">Next</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

@@ -15,9 +15,14 @@
             }
 
             .pager {
-                position: absolute;
+                position: relative;
                 bottom: 0;
                 width: 100%;
+            }
+
+            #pager {
+                background-color:transparent;
+                border:none;
             }
         </style>
 
@@ -73,6 +78,7 @@
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li class="active"><a href="/charts">Charts</a></li>
                     <li><a href="/form">Form</a></li>
+                    <li><a href="/list">List</a></li>
                 </ul>
             </div>
         </nav>
@@ -83,9 +89,11 @@
 
         <div id="chartdiv"></div>
 
-        <ul class="pager">
-            <li class="previous"><a href="/charts">Previous</a></li>
-            <li class="next"><a href="/lineChart">Next</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
+            <ul class="pager">
+                <li class="previous"><a href="/charts">Previous</a></li>
+                <li class="next"><a href="/lineChart">Next</a></li>
+            </ul>
+        </nav>
     </body>
 </html>
