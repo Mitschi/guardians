@@ -6,12 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class H2Read {
 
-    private static final String QUERY = "select * from guardians_values";
-
-    public static String H2read() {
+    public static String H2read(String QUERY, String columnLabel1, String columnLabel2) {
         String texttowrite = "";
 
         try (Connection connection = H2JDBCUtils.getConnection();
@@ -21,8 +20,8 @@ public class H2Read {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                String country = rs.getString("country");
-                String value = rs.getString("value");
+                String country = rs.getString(columnLabel1);
+                String value = rs.getString(columnLabel2);
                 texttowrite=texttowrite + country + "," +value+",\n";
                 System.out.println( country + "," + value);
             }
