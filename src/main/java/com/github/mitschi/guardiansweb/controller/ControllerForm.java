@@ -1,5 +1,6 @@
 package com.github.mitschi.guardiansweb.controller;
 
+import com.github.mitschi.guardiansweb.h2.H2Delete;
 import com.github.mitschi.guardiansweb.h2.H2Insert;
 import com.github.mitschi.guardiansweb.TableEntry;
 import org.springframework.stereotype.Controller;
@@ -15,13 +16,15 @@ public class ControllerForm {
     public String greetingForm(Model model) {
         model.addAttribute("tableEntry", new TableEntry());
 
+
         return "form";
     }
 
     @PostMapping("/form")
     public String greetingSubmit(@ModelAttribute TableEntry tableEntry) throws Exception {
-        H2Insert.Insert(tableEntry.getCountry(), tableEntry.getValue());
+        H2Insert.Insert(tableEntry.getName(), tableEntry.getUrl());
 
         return "form";
     }
+
 }
