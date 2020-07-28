@@ -24,20 +24,6 @@ public class FileHandler {
         return fileContent;
     }
 
-    public static void writeToFile(String filePath, String textToWrite) throws Exception {
-        FileWriter myWriter = new FileWriter(filePath);
-
-        try {
-            myWriter.write(textToWrite);
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        finally {
-            myWriter.close();
-        }
-    }
-
     public static String[][] convertStringTo2DArray(String stringToConvert) {
         String[] lines = stringToConvert.split("\n");
         String[][] separatedValues = new String[lines.length][];

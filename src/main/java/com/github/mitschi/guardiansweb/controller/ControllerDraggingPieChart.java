@@ -6,8 +6,6 @@ import com.github.mitschi.guardiansweb.h2.H2Read;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-
 @RestController
 public class ControllerDraggingPieChart {
 
@@ -24,10 +22,8 @@ public class ControllerDraggingPieChart {
                 "\"opacity\": 0.3,\n" +
                 "\"strokeDasharray\": \"4,4\"}, ";
 
-        ArrayList<String> columns = new ArrayList<String>();
-        columns.add("country");
-        columns.add("litres");
+        String[] columns = new String[] {"country", "litres"};
 
-        return ChartDataHandler.insertDataIntoHTMLFile(filePath,separatedValues,dummyValues,columns);
+        return ChartDataHandler.insertDataIntoHTMLFile(filePath, separatedValues, dummyValues, columns);
     }
 }

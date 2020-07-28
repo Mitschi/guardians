@@ -2,12 +2,11 @@ package com.github.mitschi.guardiansweb;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChartDataHandler {
 
-    public static String convertToJSONString(String[][] separatedValues,String dummyValues, ArrayList<String> columns){
+    public static String convertToJSONString(String[][] separatedValues,String dummyValues, String[] columns){
        String chartDataString = "";
        chartDataString=chartDataString.concat("var data = [");
 
@@ -24,10 +23,10 @@ public class ChartDataHandler {
             else {
                 chartDataString = chartDataString.concat("{");
 
-                for (int innerIdx = 0; innerIdx < columns.size(); innerIdx++) {
-                    chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns.get(innerIdx), separatedValues[idx][innerIdx]));
+                for (int innerIdx = 0; innerIdx < columns.length; innerIdx++) {
+                    chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns[innerIdx], separatedValues[idx][innerIdx]));
 
-                    if (innerIdx != columns.size() - 1) {
+                    if (innerIdx != columns.length - 1) {
                         chartDataString = chartDataString.concat(",");
                     }
 
@@ -46,8 +45,8 @@ public class ChartDataHandler {
         return chartDataString;
     }
 
-    public static String insertDataIntoHTMLFile(String htmlFilePath, String[][] separatedValues, String dummyValues, ArrayList<String> columns) throws Exception {
-        String chartValues = convertToJSONString(separatedValues,dummyValues,columns);
+    public static String insertDataIntoHTMLFile(String htmlFilePath, String[][] separatedValues, String dummyValues, String[] columns) throws Exception {
+        String chartValues = convertToJSONString(separatedValues, dummyValues, columns);
 
         File file = new File(htmlFilePath);
         Scanner scanner = new Scanner(file);
