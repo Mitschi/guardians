@@ -23,7 +23,7 @@ public class H2JDBCUtils {
     }
 
     public static void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
+        for (Throwable e : ex) {
             if (e instanceof SQLException) {
                 e.printStackTrace(System.err);
 

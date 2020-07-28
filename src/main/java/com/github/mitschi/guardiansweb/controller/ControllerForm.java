@@ -20,7 +20,7 @@ public class ControllerForm {
 
     @PostMapping("/form")
     public String greetingSubmit(@ModelAttribute TableEntry tableEntry) throws Exception {
-        H2Insert.Insert(tableEntry.getCountry(),tableEntry.getValue());
+        H2Insert.Insert(tableEntry.getCountry(), tableEntry.getValue());
 
         return "form";
     }

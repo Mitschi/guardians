@@ -2,7 +2,6 @@ package com.github.mitschi.guardiansweb;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -17,7 +16,8 @@ public class FileHandler {
                 String line = scanner.nextLine() + "\n";
                 fileContent = fileContent.concat(line);
             }
-        } else {
+        }
+        else {
             throw new FileNotFoundException(filePath + "doesn't exist");
         }
 
@@ -31,6 +31,7 @@ public class FileHandler {
         for (int idx = 0; idx < lines.length; idx++) {
             separatedValues[idx] = lines[idx].split(",");
         }
+
         return separatedValues;
     }
 }

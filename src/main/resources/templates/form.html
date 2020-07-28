@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
     <head>
-        <meta charset="UTF-8">
         <title>Form</title>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,7 +10,9 @@
 
         <style>
             .pager {
-                bottom:0;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
             }
         </style>
     </head>
@@ -52,7 +54,7 @@
 
         <ul class="pager">
             <li class="previous"><a href="/charts">Previous</a></li>
-            <li class="next"><a href="/list">Next</a></li>
+            <li class="next"><a href="/">Next</a></li>
         </ul>
     </body>
 </html>

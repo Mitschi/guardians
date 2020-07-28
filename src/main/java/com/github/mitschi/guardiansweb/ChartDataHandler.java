@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class ChartDataHandler {
 
-    public static String convertToJSONString(String[][] separatedValues,String dummyValues, String[] columns){
-       String chartDataString = "";
-       chartDataString=chartDataString.concat("var data = [");
+    public static String convertToJSONString(String[][] separatedValues, String dummyValues, String[] columns) {
+        String chartDataString = "";
+        chartDataString = chartDataString.concat("var data = [");
 
         for (int idx = -1; idx < separatedValues.length; idx++) {
             if (idx == -1) {
-                if (dummyValues != "") {
+                if (!dummyValues.equals("")) {
                     chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
 
                     if (separatedValues.length > 0) {
@@ -58,16 +58,16 @@ public class ChartDataHandler {
 
                 if (line.contains("/*dataPlaceholder*/")) {
                     htmlText = htmlText.concat(chartValues);
-                } else {
+                }
+                else {
                     htmlText = htmlText.concat(line + "\n");
                 }
             }
-        } else {
+        }
+        else {
             throw new FileNotFoundException(htmlFilePath + "doesn't exist");
         }
 
         return htmlText;
     }
-
-
 }
