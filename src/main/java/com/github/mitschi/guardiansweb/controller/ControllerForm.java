@@ -32,7 +32,7 @@ public class ControllerForm {
     @GetMapping("/form")
     public String greetingForm(Model model) {
         model.addAttribute("tableEntry", new TableEntry());
-        String parsedString = "";
+
 
         return "form";
     }

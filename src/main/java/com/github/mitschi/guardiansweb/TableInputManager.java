@@ -1,7 +1,6 @@
 package com.github.mitschi.guardiansweb;
 
 import com.github.mitschi.guardiansweb.h2.H2Manager;
-import com.sun.webkit.network.URLs;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 public class ControllerList {
 
     @RequestMapping("/list")
-    public String index() throws FileNotFoundException {
+    public static String index() throws FileNotFoundException {
         String filePath = "src/main/resources/HTML/list.html";
         String[] columnLabels = new String[] {"id", "name", "url"};
 
