@@ -10,11 +10,11 @@ import java.io.FileNotFoundException;
 @RestController
 public class ControllerTableInput {
 
-    @RequestMapping("/j")
+    @RequestMapping("/tableInput")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/Files/tableinput.html";
+        String filePath = "src/main/resources/HTML/tableInput.html";
 
-        TableInputManager.GetTableInput("http://localhost:8080/j");
+        TableInputManager.GetTableInput("http://localhost:8080/tableInput");
 
         return FileHandler.readFromFile(filePath);
     }
