@@ -47,6 +47,25 @@
                     color: white;
                 }
             </style>
+
+            <script>
+                function deleteRecord(id)
+                {
+                    let idx;
+                    let matches = id.match(/(\d+)/);
+
+                    if (matches) {
+                        idx = matches[0];
+                    }
+
+                    let confirmation = confirm("Delete Row " + idx + "?");
+
+                    if (confirmation)
+                    {
+                        alert("Row " + idx + " will be deleted.");
+                    }
+                }
+            </script>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
