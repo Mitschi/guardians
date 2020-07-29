@@ -37,7 +37,7 @@ public class ControllerList {
                     htmlText = htmlText.concat(String.format("<th>%s</th>\n", columnLabels[headerIdx]));
                 }
 
-                htmlText = htmlText.concat("</tr>\n");
+                htmlText = htmlText.concat("<th>Delete Record</th>\n</tr>\n");
 
                 for (int outerIdx = 0; outerIdx < separatedValues.length; outerIdx++) {
                     htmlText = htmlText.concat("<tr>\n");
@@ -48,7 +48,7 @@ public class ControllerList {
 
                     String tempButtonId = "delete" + String.valueOf(outerIdx + 1);
 
-                    htmlText = htmlText.concat(String.format("<td><button id = \"%s\">Delete</button></td>\n</tr>\n", tempButtonId));
+                    htmlText = htmlText.concat(String.format("<td><button class = \"btn btn-danger\" id = \"%s\" onclick = \"deleteRecord(this.id)\">Delete</button></td>\n</tr>\n", tempButtonId));
                 }
 
                 htmlText = htmlText.concat("</table>\n");
