@@ -99,6 +99,7 @@ public class H2Manager {
             preparedStatement.setString(3, value2);
 
             preparedStatement.executeUpdate();
+            update();
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -130,9 +131,6 @@ public class H2Manager {
 
         String QUERY = "Alter Table url_sources\ndrop column id;\nAlter Table url_sources\nAdd id int IDENTITY(1,1) PRIMARY KEY; ";
 
-        //for (int idx = 0; idx < allRecords.length; idx++) {
-           // QUERY = QUERY.concat(String.format("UPDATE url_sources\nSET id= %s\n Where id <> %s;\n", 1, 1));
-      //  }
         try (Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
             preparedStatement.executeUpdate();
