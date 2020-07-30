@@ -2,7 +2,6 @@ package com.github.mitschi.guardiansweb.controller;
 
 import com.github.mitschi.guardiansweb.ChartDataHandler;
 import com.github.mitschi.guardiansweb.FileHandler;
-import com.github.mitschi.guardiansweb.TableInputManager;
 import com.github.mitschi.guardiansweb.h2.H2Manager;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

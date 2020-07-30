@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.FileNotFoundException;
 @RestController
 public class ControllerStackedIputSuccessful {
+
     @GetMapping("/StackedSuccessful")
     public String index() throws FileNotFoundException {
 
@@ -15,7 +16,4 @@ public class ControllerStackedIputSuccessful {
 
         return FileHandler.readFromFile("src/main/resources/HTML/StackedSuccessful.html");
     }
-
-
-
 }
