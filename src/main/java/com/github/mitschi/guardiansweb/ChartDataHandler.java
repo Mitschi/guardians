@@ -23,7 +23,7 @@ public class ChartDataHandler {
             else {
                 chartDataString = chartDataString.concat("{");
 
-                for (int innerIdx = 0; innerIdx < columns.length; innerIdx++) {
+                for (int innerIdx = 0; innerIdx < separatedValues[idx].length; innerIdx++) {
                     chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns[innerIdx], separatedValues[idx][innerIdx]));
 
                     if (innerIdx != columns.length - 1) {

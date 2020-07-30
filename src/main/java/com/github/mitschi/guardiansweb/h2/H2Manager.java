@@ -84,7 +84,7 @@ public class H2Manager {
             }
 
             preparedStatement.executeUpdate();
-            if(values.length>2){
+            if(DB.contains("url_sources")){
             update(DB);}
         } catch (SQLException e) {
             printSQLException(e);

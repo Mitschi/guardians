@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class ControllerLineChart {
 
-    @RequestMapping("/lineChart")
+    @RequestMapping("/StackedColumnChart")
     public String index() throws Exception {
         String filePath = "src/main/resources/HTML/lineChart.html";
-        String data = H2Manager.H2read("SELECT * FROM date_value ORDER BY date", new String[] {"date", "value"});
-        String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
+       // String data = H2Manager.H2read("SELECT * FROM date_value ORDER BY date", new String[] {"date", "value"});
+       // String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 
         String[] columns = new String[] {"date", "value"};
 
-        return ChartDataHandler.insertDataIntoHTMLFile(filePath, separatedValues, "", columns);
+        return FileHandler.readFromFile(filePath);
     }
 }
