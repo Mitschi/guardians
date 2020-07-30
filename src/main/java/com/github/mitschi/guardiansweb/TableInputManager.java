@@ -54,8 +54,9 @@ public class TableInputManager {
         return sb.toString();
     }
     private static String SaveToDB(String HTML){
+        H2Manager.TruncateTable("Date_value");
         String[] Tr=HTML.split("<tr>");
-        // idx=2 da bei idx=1 Tr vor der tabelle liegt und bei idx=1 th der tablle
+        // idx=1 da idx=0 = th der tablle
         for(int idx=1;idx <= Tr.length-1;idx++){
             String[] Td=Tr[idx].split("\n");
             String tdName=Td[2].substring(4,Td[2].length()-5);

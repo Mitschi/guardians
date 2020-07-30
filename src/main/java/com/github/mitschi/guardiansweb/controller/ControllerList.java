@@ -56,7 +56,7 @@ public class ControllerList {
         }
 
 
-            H2Manager.update();
+            H2Manager.update("url_sources");
 
         return htmlText;
     }
