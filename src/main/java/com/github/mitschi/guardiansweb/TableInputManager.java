@@ -10,7 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 public class TableInputManager {
 
     public static void GetTableInput(String Url, int NR) {

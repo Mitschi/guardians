@@ -15,5 +15,4 @@ public class ControllerTableInput {
 
         return FileHandler.readFromFile(filePath);
     }
-
 }
