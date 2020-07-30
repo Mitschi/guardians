@@ -65,6 +65,18 @@
                         alert("Row " + idx + " will be deleted. (Don't know how to do it )");
                     }
                 }
+
+                function editRecord(id)
+                {
+                    let idx;
+                    let matches = id.match(/(\d+)/);
+
+                    if (matches) {
+                        idx = matches[0];
+                    }
+
+                    alert("Row " + idx + " will be edited. (Don't know how to do it )");
+                }
             </script>
     </head>
     <body>

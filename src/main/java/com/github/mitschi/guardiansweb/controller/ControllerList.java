@@ -37,6 +37,7 @@ public class ControllerList {
                     htmlText = htmlText.concat(String.format("<th>%s</th>\n", columnLabels[headerIdx]));
                 }
 
+                htmlText = htmlText.concat("<th>Edit Record</th>\n");
                 htmlText = htmlText.concat("<th>Delete Record</th>\n</tr>\n");
 
                 for (int outerIdx = 0; outerIdx < separatedValues.length; outerIdx++) {
@@ -46,9 +47,11 @@ public class ControllerList {
                         htmlText = htmlText.concat(String.format("<td>%s</td>\n", separatedValues[outerIdx][innerIdx]));
                     }
 
-                    String tempButtonId = "delete" + String.valueOf(outerIdx + 1);
+                    String tempDelId = "delete" + String.valueOf(outerIdx + 1);
+                    String tempEditId = "edit" + String.valueOf(outerIdx + 1);
 
-                    htmlText = htmlText.concat(String.format("<td><button class = \"btn btn-danger\" id = \"%s\" onclick = \"deleteRecord(this.id)\">Delete</button></td>\n</tr>\n", tempButtonId));
+                    htmlText = htmlText.concat(String.format("<td><button class = \"btn btn-primary\" id = \"%s\"onclick = \"editRecord(this.id)\">Edit</button></td>\n", tempEditId));
+                    htmlText = htmlText.concat(String.format("<td><button class = \"btn btn-danger\" id = \"%s\" onclick = \"deleteRecord(this.id)\">Delete</button></td>\n</tr>\n", tempDelId));
                 }
 
                 htmlText = htmlText.concat("</table>\n");
