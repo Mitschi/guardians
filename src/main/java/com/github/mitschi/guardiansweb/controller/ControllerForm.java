@@ -28,6 +28,10 @@ import java.lang.*;
 
 @Controller
 public class ControllerForm {
+    private static final String INSERT_Url_sources =
+            "INSERT INTO url_sources" +
+                    "(name, url) VALUES " +
+                    "(?, ?);";
 
     @GetMapping("/form")
     public String greetingForm(Model model) {
@@ -39,7 +43,9 @@ public class ControllerForm {
 
     @PostMapping("/form")
     public String greetingSubmit(@ModelAttribute TableEntry tableEntry) {
-        H2Manager.Insert(tableEntry.getName(), tableEntry.getUrl());
+        String[] values = {tableEntry.getName(), tableEntry.getUrl()};
+
+        H2Manager.Insert(values,"url_sources",INSERT_Url_sources);
 
         return "form";
     }

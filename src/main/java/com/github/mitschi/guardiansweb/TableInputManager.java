@@ -41,18 +41,20 @@ public class TableInputManager {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
-        String line ="";
+        String line;
         try {
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
         }
         return sb.toString();
     }
+    private static final String INSERT_Date_value =
+            "INSERT INTO date_value" +
+                    "(date, value) VALUES " +
+                    "(?, ?);";
     private static String SaveToDB(String HTML){
         H2Manager.TruncateTable("Date_value");
         String[] Tr=HTML.split("<tr>");
@@ -61,7 +63,8 @@ public class TableInputManager {
             String[] Td=Tr[idx].split("\n");
             String tdName=Td[2].substring(4,Td[2].length()-5);
             String tdUrl=Td[3].substring(4,Td[3].length()-5);
-            H2Manager.Insert(tdName,tdUrl);
+            String [] values={tdName,tdUrl};
+            H2Manager.Insert(values,"Date_value",INSERT_Date_value);
         }
         return "";
     }

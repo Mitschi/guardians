@@ -4,10 +4,7 @@ import java.sql.*;
 
 public class H2Manager {
 
-    private static final String INSERT_USERS_SQL =
-            "INSERT INTO url_sources" +
-                    "(id, name, url) VALUES " +
-                    "(?, ?, ?);";
+
 
     private static String jdbcURL = "jdbc:h2:file:~/test";
     private static String jdbcUsername = "sa";
@@ -72,34 +69,23 @@ public class H2Manager {
         return textToWrite;
     }
 
-    public static void Insert(String value1, String value2) {
+    public static void Insert(String[] values, String DB, String InsertStatement) {
         H2Manager createTableExample = new H2Manager();
-        createTableExample.insertRecord(value1, value2);
+        createTableExample.insertRecord(values, DB,InsertStatement);
     }
 
-    public void insertRecord(String value1, String value2) {
+    public void insertRecord(String[] values, String DB,String InsertStatement) {
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(InsertStatement)) {
 
-            String[] lastRecord = H2read("SELECT * FROM url_sources ORDER BY ID DESC LIMIT 1", new String[]{"id", "name", "url"}).split(",");
-
-            int lastId;
-
-            if (lastRecord[0].equals("")) {
-                lastId = 0;
-            } else {
-                lastId = Integer.parseInt(lastRecord[0]);
+            for (int idx = 1; idx <= values.length;idx++) {
+                preparedStatement.setString(idx, values[idx-1]);
             }
 
-            lastId++;
-
-            preparedStatement.setString(1, String.valueOf(lastId));
-            preparedStatement.setString(2, value1);
-            preparedStatement.setString(3, value2);
-
             preparedStatement.executeUpdate();
-            update("url_sources");
+            if(values.length>2){
+            update(DB);}
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -113,7 +99,7 @@ public class H2Manager {
     public void deleteRecord(String QUERY) {
         try (Connection connection = getConnection();
 
-             Statement statement = connection.createStatement();) {
+             Statement statement = connection.createStatement()) {
 
             statement.execute(QUERY);
         } catch (SQLException e) {
@@ -127,24 +113,24 @@ public class H2Manager {
     }
 
     public void updateIDs(String DB) {
-       // String[] allRecords = H2read("SELECT * FROM "+ DB, new String[]{"id", "name", "url"}).split("\n",);
+        // String[] allRecords = H2read("SELECT * FROM "+ DB, new String[]{"id", "name", "url"}).split("\n",);
 
-        String QUERY = "Alter Table "+DB+"\ndrop column id;\nAlter Table "+DB+"\nAdd id int IDENTITY(1,1) PRIMARY KEY; ";
+        String QUERY = "Alter Table " + DB + "\ndrop column id;\nAlter Table " + DB + "\nAdd id int IDENTITY(1,1) PRIMARY KEY; ";
 
         try (Connection connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
             preparedStatement.executeUpdate();
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
     public static void TruncateTable(String DB) {
         try (Connection connection = getConnection();
 
-             Statement statement = connection.createStatement();) {
+             Statement statement = connection.createStatement()) {
 
-            statement.execute("Truncate table "+DB);
+            statement.execute("Truncate table " + DB);
         } catch (SQLException e) {
             printSQLException(e);
         }
