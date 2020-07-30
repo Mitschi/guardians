@@ -33,7 +33,10 @@ public class TableInputManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-            SaveChartToDB(parsedString);
+            if(Url.contains("http://localhost:8080/j")){
+                SaveToDB(parsedString);
+            }else{
+            SaveChartToDB(parsedString);}
     }
 
     private static String convertStreamToString(InputStream is) {
@@ -72,7 +75,7 @@ public class TableInputManager {
             tdName = tdName.substring(4, tdName.length() - 5);
             tdUrl = tdUrl.substring(4, tdUrl.length() - 5);
             String[] values = {tdName, tdUrl};
-            H2Manager.Insert(values, "Date_value", INSERT_ChartData);
+            H2Manager.Insert(values, "Date_value", INSERT_Date_value);
         }
         return "";
     }
