@@ -10,35 +10,40 @@ public class ChartDataHandler {
         String chartDataString = "";
         chartDataString = chartDataString.concat("var data = [");
 
-        for (int idx = -1; idx < separatedValues.length; idx++) {
-            if (idx == -1) {
-                if (!dummyValues.equals("")) {
-                    chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
+        try {
+            for (int idx = -1; idx < separatedValues.length; idx++) {
+                if (idx == -1) {
+                    if (!dummyValues.equals("")) {
+                        chartDataString = chartDataString.concat(String.format("{%s ", dummyValues));
 
-                    if (separatedValues.length > 0) {
-                        chartDataString = chartDataString.concat(",");
+                        if (separatedValues.length > 0) {
+                            chartDataString = chartDataString.concat(",");
+                        }
+                    }
+                }
+                else {
+                    chartDataString = chartDataString.concat("{");
+
+                    for (int innerIdx = 0; innerIdx < columns.length; innerIdx++) {
+                        chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns[innerIdx], separatedValues[idx][innerIdx]));
+
+                        if (innerIdx != columns.length - 1) {
+                            chartDataString = chartDataString.concat(",");
+                        }
+
+                        chartDataString = chartDataString.concat("\n");
+                    }
+
+                    chartDataString = chartDataString.concat("}");
+
+                    if (idx != separatedValues.length - 1) {
+                        chartDataString = chartDataString.concat(", ");
                     }
                 }
             }
-            else {
-                chartDataString = chartDataString.concat("{");
-
-                for (int innerIdx = 0; innerIdx < columns.length; innerIdx++) {
-                    chartDataString = chartDataString.concat(String.format("\"%s\": \"%s\"", columns[innerIdx], separatedValues[idx][innerIdx]));
-
-                    if (innerIdx != columns.length - 1) {
-                        chartDataString = chartDataString.concat(",");
-                    }
-
-                    chartDataString = chartDataString.concat("\n");
-                }
-
-                chartDataString = chartDataString.concat("}");
-
-                if (idx != separatedValues.length - 1) {
-                    chartDataString = chartDataString.concat(", ");
-                }
-            }
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getStackTrace());
         }
 
         chartDataString = chartDataString.concat("];");

@@ -5,11 +5,13 @@ public class TableEntry {
     private String url;
 
     public void setName(String name) {
-        this.name = name;
+        if (!name.equals(""))
+            this.name = name;
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        if (!url.equals(""))
+            this.url = url;
     }
 
     public String getName() {
