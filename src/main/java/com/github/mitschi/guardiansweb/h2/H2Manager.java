@@ -4,8 +4,6 @@ import java.sql.*;
 
 public class H2Manager {
 
-
-
     private static String jdbcURL = "jdbc:h2:file:~/test";
     private static String jdbcUsername = "sa";
     private static String jdbcPassword = "";
@@ -15,7 +13,8 @@ public class H2Manager {
 
         try {
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -60,9 +59,11 @@ public class H2Manager {
                     }
                 }
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             printSQLException(e);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -86,7 +87,8 @@ public class H2Manager {
             preparedStatement.executeUpdate();
             if(DB.contains("url_sources")){
             update(DB);}
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             printSQLException(e);
         }
     }
@@ -99,10 +101,11 @@ public class H2Manager {
     public void deleteRecord(String QUERY) {
         try (Connection connection = getConnection();
 
-             Statement statement = connection.createStatement()) {
+            Statement statement = connection.createStatement()) {
 
             statement.execute(QUERY);
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             printSQLException(e);
         }
     }
@@ -113,14 +116,13 @@ public class H2Manager {
     }
 
     public void updateIDs(String DB) {
-        // String[] allRecords = H2read("SELECT * FROM "+ DB, new String[]{"id", "name", "url"}).split("\n",);
-
         String QUERY = "Alter Table " + DB + "\ndrop column id;\nAlter Table " + DB + "\nAdd id int IDENTITY(1,1) PRIMARY KEY; ";
 
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
             preparedStatement.executeUpdate();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -131,7 +133,8 @@ public class H2Manager {
              Statement statement = connection.createStatement()) {
 
             statement.execute("Truncate table " + DB);
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             printSQLException(e);
         }
     }

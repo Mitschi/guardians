@@ -42,7 +42,7 @@ public class ControllerList {
                 for (int outerIdx = 0; outerIdx < separatedValues.length; outerIdx++) {
                     htmlText = htmlText.concat("<tr>\n");
 
-                    for (int innerIdx = 0; innerIdx < separatedValues[0].length; innerIdx++) {
+                    for (int innerIdx = 0; innerIdx < separatedValues[outerIdx].length; innerIdx++) {
                         htmlText = htmlText.concat(String.format("<td>%s</td>\n", separatedValues[outerIdx][innerIdx]));
                     }
 
@@ -55,8 +55,7 @@ public class ControllerList {
             }
         }
 
-
-            H2Manager.update("url_sources");
+        H2Manager.update("url_sources");
 
         return htmlText;
     }

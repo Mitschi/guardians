@@ -28,8 +28,13 @@ public class FileHandler {
         String[] lines = stringToConvert.split("\n");
         String[][] separatedValues = new String[lines.length][];
 
-        for (int idx = 0; idx < lines.length; idx++) {
-            separatedValues[idx] = lines[idx].split(",");
+        try {
+            for (int idx = 0; idx < lines.length; idx++) {
+                separatedValues[idx] = lines[idx].split(",");
+            }
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getStackTrace());
         }
 
         return separatedValues;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class ControllerDraggingPieChart {
     // InsertStatement für DraggingPieChart
-    //private static final String INSERT_Date_value =
+    // private static final String INSERT_Date_value =
     //        "INSERT INTO guardians_values" +
     //                "(country, value) VALUES " +
     //                "(?, ?);";
