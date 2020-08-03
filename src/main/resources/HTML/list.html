@@ -58,12 +58,16 @@
                     {
                         var element = document.getElementById(id);
                         element.parentNode.removeChild(element);
+
+                        window.location.replace("http://localhost:8080/list/deleteRow?id=" + idx);
                     }
                 }
 
-                function editRow(idx)
+                function editRow(idx, name, url)
                 {
-                    alert("Row " + idx + " will be edited.");
+                    alert("Row " + idx + " will be edited.\n");
+                    alert("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url)
+                    window.location.replace("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url);
                 }
             </script>
     </head>
