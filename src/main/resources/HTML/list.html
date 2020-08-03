@@ -49,33 +49,21 @@
             </style>
 
             <script>
-                function deleteRecord(id)
+                function deleteRow(idx)
                 {
-                    let idx;
-                    let matches = id.match(/(\d+)/);
-
-                    if (matches) {
-                        idx = matches[0];
-                    }
-
-                    let confirmation = confirm("Delete Row " + idx + "?");
+                    let confirmation = confirm("Delete Row?");
+                    let id = "row" + idx;
 
                     if (confirmation)
                     {
-                        alert("Row " + idx + " will be deleted. (Don't know how to do it )");
+                        var element = document.getElementById(id);
+                        element.parentNode.removeChild(element);
                     }
                 }
 
-                function editRecord(id)
+                function editRow(idx)
                 {
-                    let idx;
-                    let matches = id.match(/(\d+)/);
-
-                    if (matches) {
-                        idx = matches[0];
-                    }
-
-                    alert("Row " + idx + " will be edited. (Don't know how to do it )");
+                    alert("Row " + idx + " will be edited.");
                 }
             </script>
     </head>

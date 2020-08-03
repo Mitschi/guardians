@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
 
-    @RestController
-    public class ControllerStackedInput {
+@RestController
+public class ControllerStackedInput {
 
-        @RequestMapping("/s")
-        public String index() throws FileNotFoundException {
-            String filePath = "src/main/resources/HTML/StackedChartInput.html";
+    @RequestMapping("/s")
+    public String index() throws FileNotFoundException {
+        String filePath = "src/main/resources/HTML/StackedChartInput.html";
 
-            return FileHandler.readFromFile(filePath);
-        }
-
+        return FileHandler.readFromFile(filePath);
     }
+}

@@ -12,7 +12,7 @@ import java.net.URLConnection;
 
 public class TableInputManager {
 
-    public static void GetTableInput(String Url, int NR) {
+    public static void GetTableInput(String Url) {
         String parsedString = "";
         try {
 
@@ -29,17 +29,20 @@ public class TableInputManager {
             parsedString = convertStreamToString(is);
             System.out.println(parsedString);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
-            if(Url.contains("http://localhost:8080/j")){
-                SaveToDB(parsedString);
-            }else{
-            SaveChartToDB(parsedString);}
+
+        if (Url.contains("http://localhost:8080/j")) {
+            SaveToDB(parsedString);
+        }
+        else {
+            SaveChartToDB(parsedString);
+        }
     }
 
     private static String convertStreamToString(InputStream is) {
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
@@ -48,9 +51,11 @@ public class TableInputManager {
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
+
         return sb.toString();
     }
 
