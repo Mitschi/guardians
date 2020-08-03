@@ -66,7 +66,9 @@
                 function editRow(idx, name, url)
                 {
                     alert("Row " + idx + " will be edited.\n");
-                    alert("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url)
+                    alert(idx);
+                    alert(name);
+                    alert(url);
                     window.location.replace("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url);
                 }
             </script>
