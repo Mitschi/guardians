@@ -1,18 +1,23 @@
 package com.github.mitschi.guardiansweb.controller;
 
 import com.github.mitschi.guardiansweb.FileHandler;
+import com.github.mitschi.guardiansweb.TableEntry;
 import com.github.mitschi.guardiansweb.h2.H2Manager;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.dom4j.rule.Mode;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
 
 import java.io.FileNotFoundException;
 
-@RestController
+@Controller
 public class ControllerList {
 
     @RequestMapping("/list")
     public static String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/HTML/list.html";
+        String filePath = "src/main/resources/templates/list.html";
         String[] columnLabels = new String[] {"id", "name", "url"};
 
         String[] htmlLines = FileHandler.readFromFile(filePath).split("\n");
@@ -56,9 +61,24 @@ public class ControllerList {
                 htmlText = htmlText.concat("</table>\n");
             }
         }
-
         H2Manager.update("url_sources");
 
         return htmlText;
+    }
+    @PostMapping("/list")
+    public String listSubmit(@ModelAttribute TableEntry tableEntry) {
+        String[] values = {tableEntry.getName(), tableEntry.getUrl(), String.valueOf(tableEntry.getRowIdx())};
+
+        //H2Manager.Insert(values,"url_sources","");
+
+        return "list";
+    }
+
+    @GetMapping("/list")
+    public String listForm(Model model) throws Exception {
+        model.addAttribute("tableEntry", new TableEntry());
+        String htmlText=index();
+        FileHandler.writeToFile("src/main/resources/templates/list.html",htmlText);
+        return "list";
     }
 }

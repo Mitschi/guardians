@@ -3,6 +3,8 @@ package com.github.mitschi.guardiansweb;
 public class TableEntry {
     private String name;
     private String url;
+    private int rowIdx;
+
 
     public void setName(String name) {
         if (!name.equals(""))
@@ -25,5 +27,13 @@ public class TableEntry {
     @Override
     public String toString() {
         return String.format("%s,%s,\n", name, url);
+    }
+
+    public int getRowIdx() {
+        return rowIdx;
+    }
+
+    public void setRowIdx(int rowIdx) {
+        this.rowIdx = rowIdx;
     }
 }

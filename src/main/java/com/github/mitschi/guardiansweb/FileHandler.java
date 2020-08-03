@@ -2,6 +2,7 @@ package com.github.mitschi.guardiansweb;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -38,5 +39,11 @@ public class FileHandler {
         }
 
         return separatedValues;
+    }
+
+    public static void writeToFile(String filePath, String textToWrite) throws Exception {
+        FileWriter writer =new FileWriter(filePath);
+        writer.write(textToWrite);
+
     }
 }
