@@ -77,8 +77,10 @@ public class ControllerList {
     @GetMapping("/list")
     public String listForm(Model model) throws Exception {
         model.addAttribute("tableEntry", new TableEntry());
+
         String htmlText=index();
-        FileHandler.writeToFile("src/main/resources/templates/list.html",htmlText);
+        FileHandler.writeToFile("src/main/resources/templates/list.html", htmlText);
+
         return "list";
     }
 }
