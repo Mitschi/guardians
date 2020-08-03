@@ -10,6 +10,9 @@ public class ControllerDeleteRow {
     @RequestMapping("/list/deleteRow")
     @ResponseBody
     public String getId(@RequestParam String id) throws Exception {
+        // Method is called when the user wants to delete a database record
+        // An HTML file is returned here which redirects to list.html
+
         H2Manager.delete("DELETE FROM url_sources WHERE id = " + id + ";");
         H2Manager.update("url_sources");
 

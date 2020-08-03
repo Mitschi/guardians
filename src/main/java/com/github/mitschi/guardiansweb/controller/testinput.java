@@ -11,8 +11,9 @@ public class testinput {
 
     @GetMapping("/input")
     public String index() throws FileNotFoundException {
-        TableInputManager.GetTableInput("http://localhost:8080/j");
+        // Data is read from another website
 
+        TableInputManager.GetTableInput("http://localhost:8080/j");
         return FileHandler.readFromFile("src/main/resources/HTML/test.html");
     }
 }

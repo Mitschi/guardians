@@ -13,6 +13,9 @@ import java.net.URLConnection;
 public class TableInputManager {
 
     public static void GetTableInput(String Url) {
+        // Data is read from another website and then
+        // saved to a database
+
         String parsedString = "";
         try {
 
@@ -43,6 +46,8 @@ public class TableInputManager {
     }
 
     private static String convertStreamToString(InputStream is) {
+        // This method converts an input stream to a string
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
@@ -59,35 +64,34 @@ public class TableInputManager {
         return sb.toString();
     }
 
-    private static final String INSERT_Date_value =
-            "INSERT INTO date_value" +
-                    "(date, value) VALUES " +
-                    "(?, ?);";
-    private static final String INSERT_ChartData =
-            "INSERT INTO ChartData" +
-                    "(date,failed,successful) VALUES " +
-                    "(?, ?, ?);";
+    private static void SaveToDB(String HTML) {
+        // Data is saved to a database
 
-    private static String SaveToDB(String HTML) {
         H2Manager.TruncateTable("Date_value");
         String[] Tr = HTML.split("<tr>");
-        // idx=1 da idx=0 = th der tablle
+
+        // idx is 1 at the beginning because idx 0 would be the table's head
         for (int idx = 1; idx <= Tr.length - 1; idx++) {
             String[] Td = Tr[idx].split("\n");
             String tdName = Td[2].replaceAll("\\s+", "");
             String tdUrl = Td[3].replaceAll("\\s+", "");
+
             tdName = tdName.substring(4, tdName.length() - 5);
             tdUrl = tdUrl.substring(4, tdUrl.length() - 5);
+
             String[] values = {tdName, tdUrl};
-            H2Manager.Insert(values, "Date_value", INSERT_Date_value);
+
+            H2Manager.Insert(values, "Date_value", "INSERT INTO date_value (date, value) VALUES (?, ?);");
         }
-        return "";
     }
 
-    private static String SaveChartToDB(String HTML) {
+    private static void SaveChartToDB(String HTML) {
+        // Data is saved to a database
+
         H2Manager.TruncateTable("ChartData");
         String[] Tr = HTML.split("<tr>");
-        // idx=1 da idx=0 = th der tablle oder html vor der tabelle
+
+        // idx is 1 at the beginning because idx 0 would be the table's head
         for (int idx = 1; idx <= Tr.length - 1; idx++) {
             String[] Td = Tr[idx].split("\n");
 
@@ -102,8 +106,7 @@ public class TableInputManager {
 
             System.out.println(tdsuccessful + " " + tdsuccessful + " " + tdweek);
             String[] values = {tdweek, tdsuccessful, tdfailed};
-            H2Manager.Insert(values, "ChartData", INSERT_ChartData);
+            H2Manager.Insert(values, "ChartData", "INSERT INTO ChartData (date,failed,successful) VALUES (?, ?, ?);");
         }
-        return "";
     }
 }

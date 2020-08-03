@@ -12,8 +12,9 @@ public class ControllerStackedIputSuccessful {
 
     @GetMapping("/StackedSuccessful")
     public String index() throws FileNotFoundException {
-        TableInputManager.GetTableInput("http://localhost:8080/s");
+        // Data is read from another website
 
+        TableInputManager.GetTableInput("http://localhost:8080/s");
         return FileHandler.readFromFile("src/main/resources/HTML/StackedSuccessful.html");
     }
 }

@@ -59,6 +59,7 @@
                         var element = document.getElementById(id);
                         element.parentNode.removeChild(element);
 
+                        // The index of the row to be deleted is appended to the url
                         window.location.replace("http://localhost:8080/list/deleteRow?id=" + idx);
                     }
                 }
@@ -69,7 +70,8 @@
                     let name = currentRow.children[1].innerHTML;
                     let url = currentRow.children[2].innerHTML;
 
-                    window.location.replace("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url);
+                    // The index, name and url of the row to be deleted are appended to the url
+                    window.location.replace("http://localhost:8080/form/edit?id=" + idx + "&name=" + name + "&url=" + url);
                 }
             </script>
     </head>

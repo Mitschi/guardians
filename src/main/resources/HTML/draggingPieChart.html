@@ -10,7 +10,7 @@
         <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
         <style>
-            #draggingPieChart {
+            #chartdiv {
               width: 100%;
               height: 720px;
             }
@@ -35,9 +35,10 @@
 
             am4core.useTheme(am4themes_animated);
 
+            // This placeholder here is the position where data for the chart is inserted. This data will be in JSON format.
             /*dataPlaceholder*/
 
-            var container = am4core.create("draggingPieChart", am4core.Container);
+            var container = am4core.create("chartdiv", am4core.Container);
             container.width = am4core.percent(100);
             container.height = am4core.percent(100);
             container.layout = "horizontal";
@@ -266,7 +267,8 @@
         <br>
         <br>
 
-        <div id="draggingPieChart"></div>
+        <!--The pie chart will be displayed in this division-->
+        <div id="chartdiv"></div>
 
         <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
             <ul class="pager">

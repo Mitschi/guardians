@@ -11,8 +11,9 @@ public class MainController {
 
     @RequestMapping("/")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/HTML/index.html";
+        // HTML Code is read from a file
 
+        String filePath = "src/main/resources/HTML/index.html";
         return FileHandler.readFromFile(filePath);
     }
 }

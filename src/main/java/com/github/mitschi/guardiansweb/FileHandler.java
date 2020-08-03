@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class FileHandler {
 
     public static String readFromFile(String filePath) throws FileNotFoundException {
+        // A file is read and returned as a string
+
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
         String fileContent = "";
@@ -25,6 +27,9 @@ public class FileHandler {
     }
 
     public static String[][] convertStringTo2DArray(String stringToConvert) {
+        // A string with values which are separated by ","
+        // is converted into a two-dimensional array
+
         String[] lines = stringToConvert.split("\n");
         String[][] separatedValues = new String[lines.length][];
 

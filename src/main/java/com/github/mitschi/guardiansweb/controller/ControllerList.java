@@ -12,6 +12,9 @@ public class ControllerList {
 
     @RequestMapping("/list")
     public static String index() throws FileNotFoundException {
+        // Every time the /list page is loaded, data from the database
+        // is displayed as an HTML table
+
         String filePath = "src/main/resources/HTML/list.html";
         String[] columnLabels = new String[] {"id", "name", "url"};
 

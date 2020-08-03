@@ -11,6 +11,9 @@ public class ControllerStackedInput {
 
     @RequestMapping("/s")
     public String index() throws FileNotFoundException {
+        // This is just a website where data is displayed
+        // Said data can be read from other methods
+
         String filePath = "src/main/resources/HTML/StackedChartInput.html";
 
         return FileHandler.readFromFile(filePath);

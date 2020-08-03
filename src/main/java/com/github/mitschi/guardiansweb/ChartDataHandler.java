@@ -4,9 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+// Data is converted to JSON format
+// and inserted into HTML files
+// so that the charts work
 public class ChartDataHandler {
 
     public static String convertToJSONString(String[][] separatedValues, String dummyValues, String[] columns) {
+        // Data from a two-dimensional array is converted into a JSON string
+
         String chartDataString = "";
         chartDataString = chartDataString.concat("var data = [");
 
@@ -46,6 +51,8 @@ public class ChartDataHandler {
     }
 
     public static String insertDataIntoHTMLFile(String htmlFilePath, String[][] separatedValues, String dummyValues, String[] columns) throws Exception {
+        // Data from a two-dimensional array is inserted at a placeholder comment in an HTML file
+
         String chartValues = convertToJSONString(separatedValues, dummyValues, columns);
 
         File file = new File(htmlFilePath);

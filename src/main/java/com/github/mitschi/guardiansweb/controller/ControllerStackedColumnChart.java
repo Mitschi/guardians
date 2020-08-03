@@ -11,10 +11,11 @@ public class ControllerStackedColumnChart {
 
     @RequestMapping("/StackedcolumnChart")
     public String index() throws Exception {
+        // Data from a database is inserted into HTML code
+
         String filePath = "src/main/resources/HTML/StackedColumnChart.html";
         String data = H2Manager.H2read("SELECT * FROM ChartData", new String[] {"date", "failed","successful"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
-
 
         String[] columns = new String[] {"category", "failed","successful"};
 

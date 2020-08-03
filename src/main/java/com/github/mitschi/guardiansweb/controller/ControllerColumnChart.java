@@ -11,6 +11,8 @@ public class ControllerColumnChart {
 
     @RequestMapping("/columnChart")
     public String index() throws Exception {
+        // An HTML File is read, data from a database is inserted into the HTML code
+
         String filePath = "src/main/resources/HTML/columnChart.html";
         String data = H2Manager.H2read("SELECT * FROM guardians_values", new String[] {"country", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);

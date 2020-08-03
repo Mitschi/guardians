@@ -1,5 +1,7 @@
 package com.github.mitschi.guardiansweb;
 
+// A class which is used for temporarily
+// storing input data from the form
 public class TableEntry {
     private String name;
     private String url;

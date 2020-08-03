@@ -11,6 +11,10 @@ public class ControllerDraggingPieChart {
 
     @RequestMapping("/draggingPieChart")
     public String index() throws Exception {
+        // Data from a database is inserted into HTML code
+        // The dummy values are needed for the "Dragging Pie Chart" to work
+        // These values create the circle the user can drag slices onto
+
         String filePath = "src/main/resources/HTML/draggingPieChart.html";
         String data = H2Manager.H2read("SELECT * FROM guardians_values", new String[] {"country", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);

@@ -2,6 +2,8 @@ package com.github.mitschi.guardiansweb.h2;
 
 import java.sql.*;
 
+// All operations which have
+// something to do with H2 database access
 public class H2Manager {
 
     private static String jdbcURL = "jdbc:h2:file:~/test";
@@ -9,6 +11,8 @@ public class H2Manager {
     private static String jdbcPassword = "";
 
     public static Connection getConnection() {
+        // Establishing a connection to the database
+
         Connection connection = null;
 
         try {
@@ -22,6 +26,8 @@ public class H2Manager {
     }
 
     public static void printSQLException(SQLException ex) {
+        // SQL Exceptions are printed here
+
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
                 e.printStackTrace(System.err);
@@ -41,6 +47,9 @@ public class H2Manager {
     }
 
     public static String H2read(String QUERY, String[] columnLabels) {
+        // Data is read from a database
+        // and returned, where all values are separated by ","
+
         String textToWrite = "";
 
         try (Connection connection = getConnection();
@@ -71,6 +80,8 @@ public class H2Manager {
     }
 
     public static void Insert(String[] values, String DB, String InsertStatement) {
+        // Data is inserted into a database
+
         H2Manager createTableExample = new H2Manager();
         createTableExample.insertRecord(values, DB,InsertStatement);
     }
@@ -94,6 +105,8 @@ public class H2Manager {
     }
 
     public static void delete(String QUERY) {
+        // Specific records can be deleted from a database
+
         H2Manager deleteExample = new H2Manager();
         deleteExample.deleteRecord(QUERY);
     }
@@ -111,6 +124,11 @@ public class H2Manager {
     }
 
     public static void update(String DB) {
+        // All id's of the table are deleted
+        // and assigned again
+        // This is necessary when a record is deleted
+        // so that no gaps appear in the id's
+
         H2Manager updateExample = new H2Manager();
         updateExample.updateIDs(DB);
     }
@@ -128,6 +146,9 @@ public class H2Manager {
     }
 
     public static void TruncateTable(String DB) {
+        // All records of the table are deleted
+        // but the table is not
+
         try (Connection connection = getConnection();
 
              Statement statement = connection.createStatement()) {

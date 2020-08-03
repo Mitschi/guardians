@@ -11,8 +11,10 @@ public class ControllerTableInput {
 
     @RequestMapping("/j")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/HTML/tableinput.html";
+        // This is just a website where data is displayed
+        // Said data can be read from other methods
 
+        String filePath = "src/main/resources/HTML/tableinput.html";
         return FileHandler.readFromFile(filePath);
     }
 }

@@ -11,8 +11,9 @@ public class ControllerCharts {
 
     @RequestMapping("/charts")
     public String index() throws FileNotFoundException {
-        String filePath = "src/main/resources/HTML/charts.html";
+        // An HTML File is read and displayed without any changes
 
+        String filePath = "src/main/resources/HTML/charts.html";
         return FileHandler.readFromFile(filePath);
     }
 }
