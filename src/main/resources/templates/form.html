@@ -43,7 +43,7 @@
                 <h1 style="text-align:center;">Form</h1>
             </div>
             <form action="#" th:action="@{/form}" th:object="${tableEntry}" method="post">
-                <p>Name: <input type="text" th:field="*{name}" /></p>
+                <p>Name: <input type="text" th:field="*{name}"></p>
                 <p>URL: <input type="text" th:field="*{url}" /></p>
                 <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
             </form>

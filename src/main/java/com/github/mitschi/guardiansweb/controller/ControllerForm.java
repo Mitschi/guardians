@@ -37,9 +37,30 @@ public class ControllerForm {
     public String getId(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("url") String url) throws Exception {
         System.out.println("Id: " + id + "\nName: " + name + "\nUrl: " + url);
 
-        H2Manager.delete("DELETE FROM url_sources WHERE id = " + id + ";");
-        H2Manager.update("url_sources");
+        String htmlText = FileHandler.readFromFile("src/main/resources/templates/form.html");
 
-        return FileHandler.readFromFile("src/main/resources/HTML/deleteRowRedirect.html");
+        String oldText1 = "                <p>Name: <input type=\"text\" th:field=\"*{name}\"></p>\n";
+        String oldText2 = "<p>URL: <input type=\"text\" th:field=\"*{url}\" /></p>";
+        String newText1 = "                <p>Name: <input type=\"text\" th:field=\"*{name}\" value=\"" + name + "\"></p>\n";
+        String newText2 = "<p>URL: <input type=\"text\" th:field=\"*{url}\" value=\"" + url + "\" /></p>";
+
+        if (htmlText.contains(oldText1)) {
+            System.out.println("Everything good at the start1");
+        }
+        if (htmlText.contains(oldText2)) {
+            System.out.println("Everything good at the start2");
+        }
+
+        htmlText = htmlText.replace(oldText1, newText1);
+        htmlText = htmlText.replace(oldText2, newText2);
+
+        if (htmlText.contains(newText1)) {
+            System.out.println("Everything good at the end1");
+        }
+        if (htmlText.contains(newText2)) {
+            System.out.println("Everything good at the end2");
+        }
+
+        return htmlText;
     }
 }

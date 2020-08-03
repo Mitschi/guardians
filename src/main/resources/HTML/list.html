@@ -63,12 +63,12 @@
                     }
                 }
 
-                function editRow(idx, name, url)
+                function editRow(idx)
                 {
-                    alert("Row " + idx + " will be edited.\n");
-                    alert(idx);
-                    alert(name);
-                    alert(url);
+                    let currentRow = document.getElementById("row" + idx);
+                    let name = currentRow.children[1].innerHTML;
+                    let url = currentRow.children[2].innerHTML;
+
                     window.location.replace("http://localhost:8080/list/editRow?id=" + idx + "&name=" + name + "&url=" + url);
                 }
             </script>
