@@ -13,17 +13,6 @@
               width: 100%;
               height: 500px;
             }
-
-            .pager {
-                position: relative;
-                bottom: 0;
-                width: 100%;
-            }
-
-            #pager {
-                background-color:transparent;
-                border:none;
-            }
         </style>
 
         <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
@@ -77,9 +66,13 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li class="active"><a href="/charts">Charts</a></li>
-                    <li><a href="/form">Form</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                    <li class="active"><a href="/charts/column">Column Chart</a></li>
+                    <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                    <li><a href="/charts/line">Line Chart</a></li>
                     <li><a href="/list">List</a></li>
+                    <li><a href="/form">Form</a></li>
                 </ul>
             </div>
         </nav>
@@ -90,12 +83,5 @@
 
         <!--The column chart will be displayed in this division-->
         <div id="chartdiv"></div>
-
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
-            <ul class="pager">
-                <li class="previous"><a href="/charts">Previous</a></li>
-                <li class="next"><a href="/lineChart">Next</a></li>
-            </ul>
-        </nav>
     </body>
 </html>

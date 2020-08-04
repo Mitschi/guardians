@@ -12,8 +12,9 @@ public class TableEntry {
     }
 
     public void setUrl(String url) {
-        if (!url.equals(""))
+        if (!url.equals("")) {
             this.url = url;
+        }
     }
 
     public String getName() {

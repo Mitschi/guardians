@@ -17,8 +17,8 @@ public class TableInputManager {
         // saved to a database
 
         String parsedString = "";
-        try {
 
+        try {
             URL url = new URL(Url);
             URLConnection conn = url.openConnection();
 
@@ -31,13 +31,12 @@ public class TableInputManager {
             InputStream is = httpConn.getInputStream();
             parsedString = convertStreamToString(is);
             System.out.println(parsedString);
-
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (Url.contains("http://localhost:8080/j")) {
+        if (Url.contains("http://localhost:8080/list/data")) {
             SaveToDB(parsedString);
         }
         else {
@@ -54,7 +53,7 @@ public class TableInputManager {
         String line;
         try {
             while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line).append("\n");
             }
         }
         catch (IOException e) {
@@ -67,7 +66,7 @@ public class TableInputManager {
     private static void SaveToDB(String HTML) {
         // Data is saved to a database
 
-        H2Manager.TruncateTable("Date_value");
+        H2Manager.TruncateTable("url_sources");
         String[] Tr = HTML.split("<tr>");
 
         // idx is 1 at the beginning because idx 0 would be the table's head
@@ -81,7 +80,7 @@ public class TableInputManager {
 
             String[] values = {tdName, tdUrl};
 
-            H2Manager.Insert(values, "Date_value", "INSERT INTO date_value (date, value) VALUES (?, ?);");
+            H2Manager.Insert(values, "url_sources", "INSERT INTO url_sources (country, value) VALUES (?, ?);");
         }
     }
 
@@ -95,17 +94,17 @@ public class TableInputManager {
         for (int idx = 1; idx <= Tr.length - 1; idx++) {
             String[] Td = Tr[idx].split("\n");
 
-            String tdweek = Td[1].replaceAll("\\s", "");
-            String tdfailed = Td[2].replaceAll("\\s+", "");
-            String tdsuccessful = Td[3].replaceAll("\\s+", "");
-            System.out.println(tdweek);
+            String tdWeek = Td[1].replaceAll("\\s", "");
+            String tdFailed = Td[2].replaceAll("\\s+", "");
+            String tdSuccessful = Td[3].replaceAll("\\s+", "");
+            System.out.println(tdWeek);
 
-            tdweek = tdweek.substring(4, tdweek.length() - 5);
-            tdsuccessful = tdsuccessful.substring(4, tdsuccessful.length() - 5);
-            tdfailed = tdfailed.substring(4, tdfailed.length() - 5);
+            tdWeek = tdWeek.substring(4, tdWeek.length() - 5);
+            tdSuccessful = tdSuccessful.substring(4, tdSuccessful.length() - 5);
+            tdFailed = tdFailed.substring(4, tdFailed.length() - 5);
 
-            System.out.println(tdsuccessful + " " + tdsuccessful + " " + tdweek);
-            String[] values = {tdweek, tdsuccessful, tdfailed};
+            System.out.println(tdSuccessful + " " + tdFailed + " " + tdWeek);
+            String[] values = {tdWeek, tdSuccessful, tdFailed};
             H2Manager.Insert(values, "ChartData", "INSERT INTO ChartData (date,failed,successful) VALUES (?, ?, ?);");
         }
     }

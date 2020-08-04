@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.list;
 
 import com.github.mitschi.guardiansweb.FileHandler;
 import com.github.mitschi.guardiansweb.h2.H2Manager;
@@ -15,7 +15,7 @@ public class ControllerList {
         // Every time the /list page is loaded, data from the database
         // is displayed as an HTML table
 
-        String filePath = "src/main/resources/HTML/list.html";
+        String filePath = "src/main/resources/HTML/list/list.html";
         String[] columnLabels = new String[] {"id", "name", "url"};
 
         String[] htmlLines = FileHandler.readFromFile(filePath).split("\n");

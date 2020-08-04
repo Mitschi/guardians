@@ -2,24 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
-        <!-- Styles -->
+        <title>Stacked Column Chart</title>
         <style>
-            #chartdiv {
-                width: 100%;
-                height: 500px;
-            }
-
             #chartdiv {
                 width: 100%;
                 height: 500px;
             }
         </style>
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
         <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
         <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -87,9 +81,7 @@
                 bullet2.locationY = 0.5;
                 bullet2.label.fill = am4core.color("#ffffff");
 
-
                 chart.scrollbarX = new am4core.Scrollbar();
-
             });
         </script>
     </head>
@@ -100,11 +92,15 @@
                     <a class="navbar-brand" href="/">Guardians of the Build Galaxy</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="/charts">Charts</a></li>
-                    <li><a href="/form">Form</a></li>
+                    <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                    <li><a href="/charts/column">Column Chart</a></li>
+                    <li class="active"><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                    <li><a href="/charts/line">Line Chart</a></li>
                     <li><a href="/list">List</a></li>
-                    <li><a href="/StackedSuccessful">List</a></li>
+                    <li><a href="/form">Form</a></li>
+                    <li><a href="/charts/stackedColumn/data/success">Get Data</a></li>
                 </ul>
             </div>
         </nav>
@@ -113,13 +109,6 @@
 
         <!--The stacked column chart will be displayed in this division-->
         <div id="chartdiv"></div>
-
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
-            <ul class="pager">
-                <li class="previous"><a href="/list">Previous</a></li>
-                <li class="next"><a href="/charts">Next</a></li>
-            </ul>
-        </nav>
     </body>
 </html>
 

@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.charts;
 
 import com.github.mitschi.guardiansweb.ChartDataHandler;
 import com.github.mitschi.guardiansweb.FileHandler;
@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-public class ControllerColumnChart {
+public class ControllerStackedColumnChart {
 
-    @RequestMapping("/columnChart")
+    @RequestMapping("/charts/stackedColumn")
     public String index() throws Exception {
-        // An HTML File is read, data from a database is inserted into the HTML code
+        // Data from a database is inserted into HTML code
 
-        String filePath = "src/main/resources/HTML/columnChart.html";
-        String data = H2Manager.H2read("SELECT * FROM guardians_values", new String[] {"country", "value"});
+        String filePath = "src/main/resources/HTML/charts/stackedColumnChart.html";
+        String data = H2Manager.H2read("SELECT * FROM ChartData", new String[] {"date", "failed","successful"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 
-        String[] columns = new String[] {"country", "visits"};
+        String[] columns = new String[] {"category", "failed","successful"};
 
         return ChartDataHandler.insertDataIntoHTMLFile(filePath, separatedValues, "", columns);
     }

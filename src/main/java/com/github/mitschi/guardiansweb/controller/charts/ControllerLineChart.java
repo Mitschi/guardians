@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.charts;
 
 import com.github.mitschi.guardiansweb.ChartDataHandler;
 import com.github.mitschi.guardiansweb.FileHandler;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class ControllerLineChart {
 
-    @RequestMapping("/lineChart")
+    @RequestMapping("/charts/line")
     public String index() throws Exception {
         // Data from a database is inserted into HTML code
 
-        String filePath = "src/main/resources/HTML/lineChart.html";
+        String filePath = "src/main/resources/HTML/charts/lineChart.html";
         String data = H2Manager.H2read("SELECT * FROM date_value ORDER BY date", new String[] {"date", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 

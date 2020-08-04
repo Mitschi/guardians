@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.charts;
 
 import com.github.mitschi.guardiansweb.FileHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ public class ControllerCharts {
     public String index() throws FileNotFoundException {
         // An HTML File is read and displayed without any changes
 
-        String filePath = "src/main/resources/HTML/charts.html";
+        String filePath = "src/main/resources/HTML/charts/charts.html";
         return FileHandler.readFromFile(filePath);
     }
 }

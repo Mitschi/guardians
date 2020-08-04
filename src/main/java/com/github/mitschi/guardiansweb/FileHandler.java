@@ -27,8 +27,10 @@ public class FileHandler {
     }
 
     public static String[][] convertStringTo2DArray(String stringToConvert) {
-        // A string with values which are separated by ","
-        // is converted into a two-dimensional array
+        /*
+         A string with values which are separated by ","
+         is converted into a two-dimensional array
+        */
 
         String[] lines = stringToConvert.split("\n");
         String[][] separatedValues = new String[lines.length][];

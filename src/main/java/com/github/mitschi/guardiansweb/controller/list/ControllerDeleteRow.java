@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.list;
 
 import com.github.mitschi.guardiansweb.FileHandler;
 import com.github.mitschi.guardiansweb.h2.H2Manager;
@@ -16,6 +16,6 @@ public class ControllerDeleteRow {
         H2Manager.delete("DELETE FROM url_sources WHERE id = " + id + ";");
         H2Manager.update("url_sources");
 
-        return FileHandler.readFromFile("src/main/resources/HTML/deleteRowRedirect.html");
+        return FileHandler.readFromFile("src/main/resources/HTML/list/deleteRowRedirect.html");
     }
 }

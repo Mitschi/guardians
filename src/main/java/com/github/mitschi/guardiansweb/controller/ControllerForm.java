@@ -40,6 +40,6 @@ public class ControllerForm {
         System.out.println("Id: " + id + "\tName: " + name + "\tUrl: " + url);
         H2Manager.delete("DELETE FROM url_sources WHERE id = " + id + ";");
 
-        return FileHandler.readFromFile("src/main/resources/HTML/editRowRedirect.html");
+        return FileHandler.readFromFile("src/main/resources/HTML/list/editRowRedirect.html");
     }
 }

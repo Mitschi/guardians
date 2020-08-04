@@ -7,24 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-        <style>
-            ul {
-                list-style-type:none;
-            }
-
-            .pager {
-                position: relative;
-                bottom: 0;
-                width: 100%;
-            }
-
-            #pager {
-                background-color:transparent;
-                border:none;
-            }
-        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,8 +17,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li class="active"><a href="/charts">Charts</a></li>
-                    <li><a href="/form">Form</a></li>
+                    <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                    <li><a href="/charts/column">Column Chart</a></li>
+                    <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                    <li><a href="/charts/line">Line Chart</a></li>
                     <li><a href="/list">List</a></li>
+                    <li><a href="/form">Form</a></li>
                 </ul>
             </div>
         </nav>
@@ -47,18 +33,12 @@
             <div class="jumbotron text-center">
                 <h1>You can go to various charts:</h1>
             </div>
-            <ul>
-                <h3><li><a href="/draggingPieChart">Dragging Pie Chart</a></li></h3>
-                <h3><li><a href="/columnChart">Column Chart</a></li></h3>
-                <h3><li><a href="/lineChart">Line Chart</a></li></h3>
+            <ul style="list-style-type: none; font-size: 1.76em;">
+                <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                <li><a href="/charts/column">Column Chart</a></li>
+                <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                <li><a href="/charts/line">Line Chart</a></li>
             </ul>
         </div>
-
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
-            <ul class="pager">
-                <li class="previous"><a href="/">Previous</a></li>
-                <li class="next"><a href="/form">Next</a></li>
-            </ul>
-        </nav>
     </body>
 </html>

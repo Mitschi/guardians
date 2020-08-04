@@ -7,19 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-        <style>
-            .pager {
-                position: relative;
-                bottom: 0;
-                width: 100%;
-            }
-
-            #pager {
-                background-color:transparent;
-                border:none;
-            }
-        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,8 +17,12 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="/charts">Charts</a></li>
-                    <li><a href="/form">Form</a></li>
+                    <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                    <li><a href="/charts/column">Column Chart</a></li>
+                    <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                    <li><a href="/charts/line">Line Chart</a></li>
                     <li><a href="/list">List</a></li>
+                    <li><a href="/form">Form</a></li>
                 </ul>
             </div>
         </nav>
@@ -42,21 +33,15 @@
             <div class="jumbotron">
                 <h1 style="text-align:center;">Overview</h1>
             </div>
-            <ul style="list-style-type:none;">
-                <li><h3><a href="/charts">Charts</a></h3></li>
-                <li><h3><a href="/form">Form</a></h3></li>
-                <li><h3><a href="/list">List</a></h3></li>
-                <li><h3><a href="/draggingPieChart">Dragging Pie Chart</a></h3></li>
-                <li><h3><a href="/columnChart">Column Chart</a></h3></li>
-                <li><h3><a href="/lineChart">Line Chart</a></h3></li>
+            <ul style="list-style-type: none; font-size: 1.76em;">
+                <li><a href="/charts">Charts</a></li>
+                <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                <li><a href="/charts/column">Column Chart</a></li>
+                <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                <li><a href="/charts/line">Line Chart</a></li>
+                <li><a href="/list">List</a></li>
+                <li><a href="/form">Form</a></li>
             </ul>
         </div>
-
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
-            <ul class="pager">
-                <li class="previous"><a href="/list">Previous</a></li>
-                <li class="next"><a href="/charts">Next</a></li>
-            </ul>
-        </nav>
     </body>
 </html>

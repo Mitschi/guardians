@@ -1,4 +1,4 @@
-package com.github.mitschi.guardiansweb.controller;
+package com.github.mitschi.guardiansweb.controller.charts;
 
 import com.github.mitschi.guardiansweb.ChartDataHandler;
 import com.github.mitschi.guardiansweb.FileHandler;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class ControllerDraggingPieChart {
 
-    @RequestMapping("/draggingPieChart")
+    @RequestMapping("/charts/draggingPie")
     public String index() throws Exception {
         // Data from a database is inserted into HTML code
         // The dummy values are needed for the "Dragging Pie Chart" to work
         // These values create the circle the user can drag slices onto
 
-        String filePath = "src/main/resources/HTML/draggingPieChart.html";
+        String filePath = "src/main/resources/HTML/charts/draggingPieChart.html";
         String data = H2Manager.H2read("SELECT * FROM guardians_values", new String[] {"country", "value"});
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 

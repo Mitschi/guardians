@@ -30,8 +30,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="/charts">Charts</a></li>
-                    <li class="active"><a href="/form">Form</a></li>
+                    <li><a href="/charts/draggingPie">Dragging Pie Chart</a></li>
+                    <li><a href="/charts/column">Column Chart</a></li>
+                    <li><a href="/charts/stackedColumn">Stacked Column Chart</a></li>
+                    <li><a href="/charts/line">Line Chart</a></li>
                     <li><a href="/list">List</a></li>
+                    <li class="active"><a href="/form">Form</a></li>
                 </ul>
             </div>
         </nav>
@@ -43,7 +47,7 @@
                 <h1 style="text-align:center;">Form</h1>
             </div>
 
-            <!--Spring Boot can access the input of the user from here-->
+            <!--Spring Boot can access the user input from here-->
             <form action="#" th:action="@{/form}" th:object="${tableEntry}" method="post">
                 <p>Name: <input type="text" th:field="*{name}"></p>
                 <p>URL: <input type="text" th:field="*{url}" /></p>
@@ -59,14 +63,5 @@
                 <a href="/form">Submit another message</a>
             </div>
         </div>
-
-
-
-        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="pager">
-            <ul class="pager">
-                <li class="previous"><a href="/charts">Previous</a></li>
-                <li class="next"><a href="/list">Next</a></li>
-            </ul>
-        </nav>
     </body>
 </html>

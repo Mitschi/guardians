@@ -6,9 +6,9 @@ import java.sql.*;
 // something to do with H2 database access
 public class H2Manager {
 
-    private static String jdbcURL = "jdbc:h2:file:~/test";
-    private static String jdbcUsername = "sa";
-    private static String jdbcPassword = "";
+    private static final String jdbcURL = "jdbc:h2:file:~/test";
+    private static final String jdbcUsername = "sa";
+    private static final String jdbcPassword = "";
 
     public static Connection getConnection() {
         // Establishing a connection to the database
