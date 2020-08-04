@@ -18,7 +18,6 @@ public class ControllerLineChart {
         String[][] separatedValues = FileHandler.convertStringTo2DArray(data);
 
         String[] columns = new String[] {"date", "value"};
-
         return ChartDataHandler.insertDataIntoHTMLFile(filePath, separatedValues,  "", columns);
     }
 }
